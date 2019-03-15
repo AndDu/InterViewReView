@@ -6,16 +6,14 @@ package com.example.administrator.intenrviewtest.leetcode;
 
 public class 从主串中找到子串的索引 {
 
-
-    class Solution {
-        public int removeElement(int[] nums, int val) {
-            int tail = 0;
-            for (int i = 0, len = nums.length; i < len; ++i) {
-                if (nums[i] != val) {
-                    nums[tail++] = nums[i];
-                }
+    public int removeElement(int[] nums, int val) {
+        int tail = 0;
+        for (int i = 0, len = nums.length; i < len; ++i) {
+            if (nums[i] != val) {
+                nums[tail++] = nums[i];
             }
-            return tail;
         }
+        return tail;
     }
+
 }
