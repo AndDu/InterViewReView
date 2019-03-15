@@ -1,34 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:fillViewport="true"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
 
-    <Button
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:onClick="sca"
-        android:text="sca" />
-    <Button
-        android:layout_width="wrap_content"
-        android:text="aphla"
-        android:onClick="aphla"
-        android:layout_height="wrap_content" />
-    <Button
-        android:layout_width="wrap_content"
-        android:text="translate"
-        android:onClick="translate"
-        android:layout_height="wrap_content" />
-   <Button
-        android:layout_width="wrap_content"
-        android:text="rote"
-        android:onClick="rote"
-        android:layout_height="wrap_content" />
-    <Button
-        android:layout_width="wrap_content"
-        android:text="valueAnim"
-        android:onClick="valueAnim"
-        android:layout_height="wrap_content" />
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:onClick="sca"
+            android:text="sca" />
 
-</LinearLayout>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="aphla"
+            android:text="aphla" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="translate"
+            android:text="translate" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="rote"
+            android:text="rote" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="animSet"
+            android:text="animSet" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="valueAnim"
+            android:text="valueAnim" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="objectAnim"
+            android:text="objectAnim" />
+
+    </LinearLayout>
+</ScrollView>
