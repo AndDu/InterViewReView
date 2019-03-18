@@ -1,0 +1,31 @@
+fragment和activity在xml中添加，同时启动,启动生命周期如下
+
+oncreate          ---->Activity
+
+onAttch()         ---->Fragment
+onCreate          ---->Fragment
+oncreateView      ---->Fragment
+onActivityCreate  ---->Fragment
+
+onstart           ---->Activity
+
+onstart           ---->Fragment
+
+onResume          ---->Activity
+
+onResume          ---->Fragment
+
+onPause           ---->Fragment
+
+onPause           ---->Activity
+onStop
+onStop            ---->Activity
+
+onDestoryView     ---->Fragment
+onDestory         ---->Fragment
+onDetach          ---->Fragment
+
+onDestory         ---->Activity
+onRestart         ---->Activity
+
+结论：启动时Activity的生命周期先执行，停止和销毁时Fragment的生命周期先执行

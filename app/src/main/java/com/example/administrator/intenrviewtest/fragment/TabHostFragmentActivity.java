@@ -11,14 +11,14 @@ import com.example.administrator.intenrviewtest.R;
 
 /**
  * Created by Administrator on 2019/3/15.
+ *
  */
 
 public class TabHostFragmentActivity extends AppCompatActivity {
 
     private FragmentTabHost myTabhost;
-    private String[] mFragmentTags = {"1", "3"};
+    private String[] mFragmentTags = {"1", "2"};
     private Class<?>[] mFragment = {Fragment.class, Fragment.class};
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
