@@ -67,11 +67,11 @@ import android.view.animation.TranslateAnimation;
 public class AnimationTestActivity extends AppCompatActivity {
 
 
-//    public static void startActivity(Context context){
-//        Intent intent = new Intent(context, AnimationTestActivity.class);
-//
+    public static void startActivity(Context context){
+        Intent intent = new Intent(context, AnimationTestActivity.class);
+
 //        ActivityCompat.startActivity(context,intent,);
-//    }
+    }
 
 
     @Override

@@ -10,7 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".SchemeTestActivity">
 
@@ -25,19 +29,32 @@
                 <!--下面这几行也必须得设置-->
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+
                 <action android:name="android.intent.action.VIEW" />
 
 
-
             </intent-filter>
         </activity>
-        <activity android:name=".AnimationTestActivity" >
+        <activity android:name=".AnimationTestActivity">
+
+        </activity>
+        <activity android:name=".customview.CustomTestActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <!-- 将本地服务设置成远程服务-->
+        <!--//设置可被其他进程调用-->
+        <service
+            android:name=".service.AIDLService"
+            android:exported="true"
+            android:process=":remote">
+
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="com.example" />
+
             </intent-filter>
-        </activity>
+
+
+        </service>
     </application>
 
 </manifest>

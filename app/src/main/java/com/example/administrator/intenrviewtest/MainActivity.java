@@ -4,6 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.administrator.intenrviewtest.customview.CustomTestActivity;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,5 +19,8 @@ public class MainActivity extends AppCompatActivity {
 //        SchemeTestActivity.startActivity(this);
 //        SchemeTestActivity.startActivity(this, "type=string&str=1&str2=1,1,2");
         AnimationTestActivity.startActivity(this);
+    }
+    public void customView(View view) {
+        CustomTestActivity.startActivity(this);
     }
 }

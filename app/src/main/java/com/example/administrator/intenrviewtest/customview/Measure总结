@@ -1,0 +1,9 @@
+疑问：测量的时候打印match_parent会打印两次，会不会是子view先measure了一遍，然后父View measure的时候在确定一次？
+
+AT_MOST:子View想要多大就多大，但是不能超过父控件的大小。
+EXACTLY:表示父控件已经确定了子View 的大小。
+UNSPECIFIED:子View想要多大就多大，父控件没有限制。
+
+精髓：
+如果对View的宽高进行修改了，不要调用super.onMeasure(widthMeasureSpec,heightMeasureSpec);要调用setMeasuredDimension(widthsize,heightsize);
+VideoView的大小就是靠这个方法实现的；

@@ -1,0 +1,15 @@
+使用：
+(服务端)
+新建Service，
+新建AIDL文件，
+实现aidl接口，
+在service中的bind方法中返回binder，
+在manifest中声明service（exported process intent-filter）
+
+（客户端）
+复制服务端aidl文件到客户端，
+新建serverconnction对象
+通过包名和intent-filter绑定bindservice启动服务
+
+
+注意事项：AIDL返回方法是在异步线程中
