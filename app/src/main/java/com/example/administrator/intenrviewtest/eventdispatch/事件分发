@@ -1,0 +1,11 @@
+1.事件分发：按顺序进行分发，没有消费的话按逆序返回给Activity。
+
+1.dispatch 默认是true， oninterce 默认是false ,ontouch 默认是false;
+2.dispatch 返回false有两种情况
+    (1)如果当前View的父View没有其他子View，则是给父View的onTouchEvent处理
+    (2)如果当前View的父View有其他子View，则是给父View的其他子View的onTouchEvent处理，如果其他子View的onTouchEvent不处理，则交给这个View的dispatch方法进行分发。
+3.oninterce 返回true 是给自己的onTouchEvent处理
+4.ontouch返回true代表消费事件，只有消费了down事件，才能接受后续的事件，否则后续事件将不会再分发过来。
+
+
+主要注意：如果一个Viewgroup中有多个子View，会从最上层的子View开始分发，并且会先询问子View中的子View

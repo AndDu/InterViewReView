@@ -11,7 +11,11 @@ import android.view.View;
  * Created by Administrator on 2019/3/19.
  */
 
-public class CustomView extends View{
+public class CustomView extends View {
+
+    private Boolean isDispatch;
+    private Boolean isTouch;
+
     public CustomView(Context context) {
         super(context);
     }
@@ -24,44 +28,58 @@ public class CustomView extends View{
         super(context, attrs, defStyleAttr);
     }
 
-
-    @Override
-    protected boolean dispatchHoverEvent(MotionEvent event) {
-        switch (event.getAction()){
-            case MotionEvent.ACTION_DOWN:
-                Log.e(" CustomView", "dispatchHoverEvent_ACTION_DOWN: " );
-                break;
-            case MotionEvent.ACTION_MOVE:
-                Log.e("CustomView", "dispatchHoverEvent_ACTION_MOVE: " );
-                break;
-            case MotionEvent.ACTION_UP:
-                Log.e("CustomView", "dispatchHoverEvent_ACTION_UP: " );
-                break;
-        }
-        return super.dispatchHoverEvent(event);
+    public void setDispatch(Boolean dispatch) {
+        isDispatch = dispatch;
     }
 
+    public void setTouch(Boolean touch) {
+        isTouch = touch;
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent event) {
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                Log.e(" CustomView", "dispatchTouchEvent_ACTION_DOWN: ");
+                break;
+            case MotionEvent.ACTION_MOVE:
+                Log.e("CustomView", "dispatchTouchEvent_ACTION_MOVE: ");
+                break;
+            case MotionEvent.ACTION_UP:
+                Log.e("CustomView", "dispatchTouchEvent_ACTION_UP: ");
+                break;
+        }
+        if (isDispatch == null) {
+            return super.dispatchTouchEvent(event);
+        } else {
+            return isDispatch;
+        }
+    }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
 
-        switch (event.getAction()){
+        switch (event.getAction()) {
 
             case MotionEvent.ACTION_DOWN:
-                Log.e("CustomView", "onTouchEvent_ACTION_DOWN: " );
+                Log.e("CustomView", "onTouchEvent_ACTION_DOWN: ");
                 break;
 
             case MotionEvent.ACTION_MOVE:
-                Log.e("CustomView", "onTouchEvent_ACTION_MOVE: " );
+                Log.e("CustomView", "onTouchEvent_ACTION_MOVE: ");
                 break;
 
             case MotionEvent.ACTION_UP:
-                Log.e("CustomView", "onTouchEvent_ACTION_UP: " );
+                Log.e("CustomView", "onTouchEvent_ACTION_UP: ");
                 break;
 
         }
 
-        return false;
+        if (isTouch == null) {
+            return super.onTouchEvent(event);
+        } else {
+            return isTouch;
+        }
 
     }
 

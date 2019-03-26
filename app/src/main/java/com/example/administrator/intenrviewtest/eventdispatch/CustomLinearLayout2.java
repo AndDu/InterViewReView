@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
  * Created by Administrator on 2019/3/19.
  */
 
-public class CustomLinearLayout extends LinearLayout {
+public class CustomLinearLayout2 extends LinearLayout {
 
 
     private Boolean isDispatch;
@@ -30,15 +30,15 @@ public class CustomLinearLayout extends LinearLayout {
         isIntercept = intercept;
     }
 
-    public CustomLinearLayout(Context context) {
+    public CustomLinearLayout2(Context context) {
         super(context);
     }
 
-    public CustomLinearLayout(Context context, @Nullable AttributeSet attrs) {
+    public CustomLinearLayout2(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public CustomLinearLayout(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public CustomLinearLayout2(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
@@ -47,13 +47,13 @@ public class CustomLinearLayout extends LinearLayout {
     public boolean dispatchTouchEvent(MotionEvent ev) {
         switch (ev.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                Log.e(" CustomLinearLaoyout", "dispatchHoverEvent_ACTION_DOWN: ");
+                Log.e(" CustomLinearLaoyout2", "dispatchTouchEvent_ACTION_DOWN: ");
                 break;
             case MotionEvent.ACTION_MOVE:
-                Log.e("CustomLinearLaoyout", "dispatchHoverEvent_ACTION_MOVE: ");
+                Log.e("CustomLinearLaoyout2", "dispatchTouchEvent_ACTION_MOVE: ");
                 break;
             case MotionEvent.ACTION_UP:
-                Log.e("CustomLinearLaoyout", "dispatchHoverEvent_ACTION_UP: ");
+                Log.e("CustomLinearLaoyout2", "dispatchTouchEvent_ACTION_UP: ");
                 break;
         }
         if (isDispatch == null) {
@@ -69,15 +69,15 @@ public class CustomLinearLayout extends LinearLayout {
         switch (ev.getAction()){
 
             case MotionEvent.ACTION_DOWN:
-                Log.e("CustomLinearLaoyout", "onInterceptTouchEvent_ACTION_DOWN: " );
+                Log.e("CustomLinearLaoyout2", "onInterceptTouchEvent_ACTION_DOWN: " );
                 break;
 
             case MotionEvent.ACTION_MOVE:
-                Log.e("CustomLinearLaoyout", "onInterceptTouchEvent_ACTION_MOVE: " );
+                Log.e("CustomLinearLaoyout2", "onInterceptTouchEvent_ACTION_MOVE: " );
                 break;
 
             case MotionEvent.ACTION_UP:
-                Log.e("CustomLinearLaoyout", "onInterceptTouchEvent_ACTION_UP: " );
+                Log.e("CustomLinearLaoyout2", "onInterceptTouchEvent_ACTION_UP: " );
                 break;
 
         }
@@ -100,15 +100,15 @@ public class CustomLinearLayout extends LinearLayout {
         switch (event.getAction()){
 
             case MotionEvent.ACTION_DOWN:
-                Log.e("CustomLinearLaoyout", "onTouchEvent_ACTION_DOWN: " );
+                Log.e("CustomLinearLaoyout2", "onTouchEvent_ACTION_DOWN: " );
                 break;
 
             case MotionEvent.ACTION_MOVE:
-                Log.e("CustomLinearLaoyout", "onTouchEvent_ACTION_MOVE: " );
+                Log.e("CustomLinearLaoyout2", "onTouchEvent_ACTION_MOVE: " );
                 break;
 
             case MotionEvent.ACTION_UP:
-                Log.e("CustomLinearLaoyout", "onTouchEvent_ACTION_UP: " );
+                Log.e("CustomLinearLaoyout2", "onTouchEvent_ACTION_UP: " );
                 break;
 
         }
