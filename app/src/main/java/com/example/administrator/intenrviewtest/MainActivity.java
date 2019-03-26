@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.administrator.intenrviewtest.customview.CustomTestActivity;
+import com.example.administrator.intenrviewtest.eventdispatch.EventTestActivity;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -20,7 +21,12 @@ public class MainActivity extends AppCompatActivity {
 //        SchemeTestActivity.startActivity(this, "type=string&str=1&str2=1,1,2");
         AnimationTestActivity.startActivity(this);
     }
+
     public void customView(View view) {
         CustomTestActivity.startActivity(this);
+    }
+
+    public void EventTest(View view) {
+        EventTestActivity.startActivity(this);
     }
 }

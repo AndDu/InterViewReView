@@ -40,6 +40,7 @@
         </activity>
         <activity android:name=".customview.CustomTestActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".eventdispatch.EventTestActivity" />
         <!-- 将本地服务设置成远程服务-->
         <!--//设置可被其他进程调用-->
         <service
