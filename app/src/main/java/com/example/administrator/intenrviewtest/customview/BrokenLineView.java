@@ -3,60 +3,35 @@
 //import android.content.Context;
 //import android.graphics.Canvas;
 //import android.graphics.Color;
+//import android.graphics.LinearGradient;
 //import android.graphics.Paint;
 //import android.graphics.Path;
-//import android.graphics.PointF;
-//import android.graphics.Rect;
-//import android.graphics.RectF;
+//import android.graphics.Shader;
 //import android.support.annotation.Nullable;
 //import android.util.AttributeSet;
-//import android.view.MotionEvent;
 //import android.view.View;
 //
-//import com.yingze.happinessecommunity.mode.healthcare.HealthChangeMode;
-//import com.yingze.happinessecommunity.utils.DensityUtil;
+//import com.yingze.happinessemerchant.utils.DensityUtil;
 //
-//import java.util.ArrayList;
 //import java.util.List;
 //
 ///**
-// * Created by YellowHuang on 2018/4/20.
+// * Created by Yellow on 2017/10/12.
 // */
 //
 //public class BrokenLineView extends View {
 //
-//    private static final double RATE = 0.30d;
-//    private static final int STROKEWIDTH = 2;
-//
 //    private Paint mPaint;
-//    private final Context context;
-//    private final String mMaxX = "2017-04-20";
-//    private static final int RECTOFFSET = 10;
-//    private static final int TEXTPADDING = 20;
-//    private int mMaxY = 250;
-//    private int height;
+//    private int parentHeight;
+//    private float maxValueY;
+//    private float maxValueX;
+//    private List<Mode> data;
+//    private int offsetY = -15;
 //    private int width;
-//    private static final int STARTPADDING = 10;
-//    private static final int HORTEXTPADDINGLINE = 10;
-//    private List<List<HealthChangeMode>> lists = new ArrayList<>();
-//    private final List<List<PointF>> pointFList = new ArrayList<>();
-//    private final List<List<PointF>> pointFControllList = new ArrayList<>();
-//    private int[] colors = {Color.parseColor("#fffe841e"), getResources().getColor(android.R.color.holo_blue_light)};
-//    private static final int TEXT_COLOR = Color.parseColor("#ff858585");
-//    private Canvas mCanvas;
-//    private int[] whY;
-//    private int[] whX;
-//    private float getX;
-//    private boolean isOnTouch = false;
-//
-//    public void setColors(int[] colors) {
-//        this.colors = colors;
-//    }
-//
-//    public void setDate(List<List<HealthChangeMode>> modeList) {
-//        lists = modeList;
-//        invalidate();
-//    }
+//    private boolean isMemer = false;
+//    private int textSize = DensityUtil.dip2px(getContext(), 14);
+//    private int textSizeOL = DensityUtil.dip2px(getContext(), 12);
+//    private int lineSize = DensityUtil.dip2px(getContext(), 1);
 //
 //    public BrokenLineView(Context context) {
 //        this(context, null);
@@ -66,315 +41,154 @@
 //        this(context, attrs, 0);
 //    }
 //
-//
-//    public void setmMaxY(int mMaxY) {
-//        this.mMaxY = mMaxY;
-//    }
-//
 //    public BrokenLineView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
 //        super(context, attrs, defStyleAttr);
-//        this.context = context;
-//        initPaint();
+//
 //    }
 //
 //
-//    private void initPaint() {
+//    public void setData(List<Mode> data) {
+//        this.data = data;
+//        init();
+//        invalidate();
+//
+//    }
+//
+//    public void setData(List<Mode> data, boolean isMemer) {
+//        this.data = data;
+//        this.isMemer = isMemer;
+//        init();
+//        invalidate();
+//
+//    }
+//
+//    void init() {
 //        mPaint = new Paint();
+//        mPaint.setColor(Color.BLUE);
 //        mPaint.setAntiAlias(true);
-//        mPaint.setStrokeWidth(STROKEWIDTH);
-//        mPaint.setTextSize(DensityUtil.dip2px(context, 12));
-//        mPaint.setColor(TEXT_COLOR);
-//
+//        mPaint.setStrokeWidth(1);
+//        mPaint.setStyle(Paint.Style.FILL);
+//        if (data == null || data.size() == 0) return;
+//        int maxIndex = 0;
+//        for (int i = 0; i < data.size(); i++) {
+//            Mode mode = data.get(i);
+//            if (mode.getValue() > maxValueY) {
+//                maxValueY = (float) mode.getValue();
+//                maxIndex = i;
+//            }
+//        }
+//        maxValueY = maxValueY == 0 ? 1 : (int) (maxValueY * (maxValueY > 20 ? 1.3 : 2));
+//        maxValueX = getMaxValueX(maxIndex);
 //    }
 //
-//    @Override
-//    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
-//        super.onSizeChanged(w, h, oldw, oldh);
-//        this.height = h;
-//        this.width = w;
+//    int getMaxValueX(int maxIndex) {
+//
+//        switch (maxIndex) {
+//            case 0:
+//                return 0;
+//            case 1:
+//                return width / 5;
+//            case 2:
+//                return width / 5 * 2;
+//            case 3:
+//                return width / 5 * 3;
+//            case 4:
+//                return width / 5 * 4;
+//            default:
+//                return 0;
+//        }
+//
 //    }
 //
 //    @Override
 //    protected void onDraw(Canvas canvas) {
 //        super.onDraw(canvas);
-//        canvas.translate(0, height);
-//        this.mCanvas = canvas;
-//        mPaint.setColor(TEXT_COLOR);
-//        mPaint.setStyle(Paint.Style.FILL);
-//        whY = getTextWidthAndHeight(String.valueOf(mMaxY));
-//        if (lists.size() != 0 && lists.get(0).size() != 0) {
-//            whX = getTextWidthAndHeight(lists.get(0).get(0).getCheckDate());
-//        } else {
-//            whX = getTextWidthAndHeight(mMaxX);
-//        }
-//
-////        canvas.drawCircle(0, 0, 10, mPaint);
-//        drawVerText(canvas, whX, whY);
-//        drawHorText(canvas, whX, whY);
-//        drawHorLine(canvas, whX, whY); //画水平线
-//        caculatePoint(canvas, whX, whY);
-//        getControllList();
-//        drawPoint(canvas);
-//        drawVerLineAndRect(canvas);
-//
-//
-//    }
-//
-//    void drawVerLineAndRect(Canvas canvas) {
-//        if (isOnTouch) {
-//            mCanvas.drawLine(getX, (whY[1] + whX[1] + HORTEXTPADDINGLINE + whY[1] / 2) * -1, getX, -height + whY[1] / 2, mPaint);
-//            for (int i = 0; i < pointFList.size(); i++) {
-//                mPaint.setColor(colors[i % 2]);
-//                List<PointF> pointFs = pointFList.get(i);
-//                for (int j = 0; j < pointFs.size(); j++) {
-//                    PointF pointF = pointFs.get(j);
-//                    if (Math.abs(getX - pointF.x) < 8) {
-//                        mPaint.setStyle(Paint.Style.FILL);
-//                        canvas.drawCircle(pointF.x, pointF.y, 10, mPaint);
-//                        mPaint.setColor(Color.parseColor("#ffffffff"));
-//                        canvas.drawCircle(pointF.x, pointF.y, 5, mPaint);
-//                        mPaint.setColor(colors[i % 2]);
-//                        HealthChangeMode healthChangeMode = lists.get(i).get(pointFs.size() == 1 ? j : j - 1);
-//                        String readNum = healthChangeMode.getReadNum();
-//                        int[] textWidthAndHeight = getTextWidthAndHeight(readNum);
-//                        if (i % 2 != 0) {
-//                            RectF rect = new RectF((int) (pointF.x + RECTOFFSET), (int) (pointF.y - RECTOFFSET - textWidthAndHeight[1] - TEXTPADDING),
-//                                    (int) (pointF.x + RECTOFFSET + TEXTPADDING + textWidthAndHeight[0]), (int) (pointF.y - RECTOFFSET));
-//                            RectF rect1 = new RectF((int) (pointF.x + RECTOFFSET), (int) (pointF.y - RECTOFFSET - textWidthAndHeight[1] - TEXTPADDING),
-//                                    (int) (pointF.x + RECTOFFSET + TEXTPADDING + textWidthAndHeight[0]), (int) (pointF.y - RECTOFFSET));
-//                            mPaint.setColor(Color.parseColor("#ffffffff"));
-//                            mPaint.setStyle(Paint.Style.FILL);
-//                            canvas.drawRoundRect(rect1, 10, 10, mPaint);
-//                            mPaint.setColor(colors[i % 2]);
-//                            mPaint.setStyle(Paint.Style.STROKE);
-//                            canvas.drawRoundRect(rect, 10, 10, mPaint);
-//                            mPaint.setStyle(Paint.Style.FILL);
-//                            canvas.drawText(readNum, pointF.x + RECTOFFSET + TEXTPADDING / 2, pointF.y - RECTOFFSET - TEXTPADDING / 2, mPaint);
-//                        } else {
-//                            RectF rect = new RectF((int) (pointF.x - RECTOFFSET - textWidthAndHeight[0] - TEXTPADDING), (int) (pointF.y - RECTOFFSET - textWidthAndHeight[1] - TEXTPADDING),
-//                                    (int) (pointF.x - RECTOFFSET), (int) (pointF.y - RECTOFFSET));
-//                            RectF rect1 = new RectF((int) (pointF.x - RECTOFFSET - textWidthAndHeight[0] - TEXTPADDING), (int) (pointF.y - RECTOFFSET - textWidthAndHeight[1] - TEXTPADDING),
-//                                    (int) (pointF.x - RECTOFFSET), (int) (pointF.y - RECTOFFSET));
-//                            mPaint.setColor(Color.parseColor("#ffffffff"));
-//                            mPaint.setStyle(Paint.Style.FILL);
-//                            canvas.drawRoundRect(rect1, 10, 10, mPaint);
-//                            mPaint.setColor(colors[i % 2]);
-//                            mPaint.setStyle(Paint.Style.STROKE);
-//                            canvas.drawRoundRect(rect, 10, 10, mPaint);
-//                            mPaint.setStyle(Paint.Style.FILL);
-//                            canvas.drawText(readNum, pointF.x - RECTOFFSET - textWidthAndHeight[0] - TEXTPADDING / 2, pointF.y - RECTOFFSET - TEXTPADDING / 2, mPaint);
-//                        }
-//                    }
-//                }
-//
-//            }
-//        }
-//    }
-//
-//
-//    private void drawPoint(Canvas canvas) {
-//        if (pointFControllList == null || pointFControllList.size() == 0) return;
+//        if (data == null || data.size() == 0) return;
+//        int effectiveHeight = parentHeight / 4 * 3;
+//        int start = width / 5 / 2;
+//        canvas.translate(start, effectiveHeight);
 //        Path path = new Path();
-//        for (int j = 0; j < pointFControllList.size(); j++) {
-//            List<PointF> list = pointFControllList.get(j);
-//            mPaint.setColor(colors[j % 2]);
-//            for (int i = 0; i < list.size(); i += 3) {
-//                PointF pointF = list.get(i);
-////                if (i == 0 || i == list.size() + 3 - 1) {
-////                    canvas.drawCircle(pointF.x, pointF.y, 5, mPaint);
-////                }
-//                canvas.drawCircle(pointF.x, pointF.y, 5, mPaint);
-//                path.reset();
-//                path.moveTo(pointF.x, pointF.y);
-//                if (i + 3 > list.size()) break;
-//                PointF pointF1 = list.get(i + 1);
-//                PointF pointF2 = list.get(i + 2);
-//                PointF pointF3 = list.get(i + 3);
-//                path.cubicTo(pointF1.x, pointF1.y, pointF2.x, pointF2.y, pointF3.x, pointF3.y);
-//                canvas.drawPath(path, mPaint);
-//            }
-////            path.reset();
-////            int size = list.size();
-////            PointF pointF = list.get(size - 1);
-////            PointF pointF1 = list.get(size - 2);
-////            PointF pointF2 = list.get(size - 3);
-////            PointF pointF3 = list.get(size - 4);
-////            path.moveTo(pointF3.x, pointF3.y);
-////            path.cubicTo(pointF2.x, pointF2.y, pointF1.x, pointF1.y, pointF.x, pointF.y);
-////            canvas.drawPath(path, mPaint);
+//        path.lineTo(0, 0);
+//        for (int i = 0; i < data.size(); i++) {
+//            Mode mode = data.get(i);
+//            float height = (float) (mode.getValue() / maxValueY * effectiveHeight * -1);
+//            path.lineTo(getMaxValueX(i), height);
 //        }
-//
-//
-//    }
-//
-//    /**
-//     * 令
-//     * A0和B3连线的斜率 k = (B3Y - A0Y) / (B3X - A0X)
-//     * 常数 b = A3Y - k * A3X
-//     * 则
-//     * A2的X坐标 A2X = A3X - (A3X - A0X) * rate
-//     * A2的Y坐标 A2Y = k * A2X + b
-//     * B1的X坐标 B1X = A3X + (B3X - A3X) * rate
-//     * B1的Y坐标 B1Y = k * B1X + b
-//     */
-//    private void getControllList() {
-//        pointFControllList.clear();
-//        if (pointFList == null || pointFList.size() == 0 || pointFList.get(0).size() == 1) return;
-//
-//        //第三个点开始取，第二个点为需要点，取右控制点，第三个点取左控制点
-//        for (int j = 0; j < pointFList.size(); j++) {
-//
-//            List<PointF> list = pointFList.get(j);
-//            List<PointF> controlls = new ArrayList<>();
-//            for (int i = 2; i < list.size(); i++) {
-//                PointF pointF0 = list.get(i - 2);
-//                PointF pointF1 = list.get(i - 1); //
-//                PointF pointF2 = list.get(i);//
-//
-//                double k = (pointF2.y - pointF0.y) / (pointF2.x - pointF0.x);
-//                double b = pointF1.y - k * pointF1.x;
-//
-//                //获取左坐标。
-//                PointF leftcontrollPoint = new PointF();
-//                leftcontrollPoint.x = (float) (pointF1.x - (pointF1.x - pointF0.x) * RATE);
-//                leftcontrollPoint.y = (float) (k * leftcontrollPoint.x + b);
-//
-//                PointF rightcontrollPoint = new PointF();
-//                rightcontrollPoint.x = (float) (pointF1.x + (pointF2.x - pointF1.x) * RATE);
-//                rightcontrollPoint.y = (float) (k * rightcontrollPoint.x + b);
-//                controlls.add(leftcontrollPoint);
-//                controlls.add(pointF1);
-//                controlls.add(rightcontrollPoint);
-//            }
-//
-//            controlls.remove(0);
-//            controlls.remove(controlls.size() - 1);
-//            pointFControllList.add(controlls);
-//
+//        path.lineTo(getMaxValueX(4), 0);
+//        path.lineTo(0, 0);
+//        mPaint.setShader(new LinearGradient(maxValueX, effectiveHeight * -1, maxValueX, 0, new int[]{
+//                Color.parseColor("#ffab54"), Color.parseColor("#fff6ec"), Color.WHITE},
+//                new float[]{0f, .7F, 1F}, Shader.TileMode.CLAMP));
+//        canvas.drawPath(path, mPaint);
+//        Paint paint = new Paint();
+//        paint.setAntiAlias(true);
+//        paint.setStrokeWidth(lineSize);
+//        paint.setColor(Color.parseColor("#ffa446"));
+//        paint.setStyle(Paint.Style.FILL);
+//        for (int i = 0; i < data.size() - 1; i++) {
+//            float startY = (int) data.get(i).getValue() / maxValueY * effectiveHeight * -1;
+//            float stopY = (int) data.get(i + 1).getValue() / maxValueY * effectiveHeight * -1;
+//            canvas.drawLine(getMaxValueX(i), startY, getMaxValueX(i + 1), stopY, paint);
 //        }
-//
-//
+//        paint.setColor(Color.parseColor("#e78b2c"));
+//        for (int i = 0; i < data.size(); i++) {
+//            canvas.drawCircle(getMaxValueX(i), (int) data.get(i).getValue() / maxValueY * effectiveHeight * -1, 8, paint);
+//        }
+//        paint.setTextSize(textSize);
+//        paint.setColor(Color.parseColor("#c4c4c4"));
+//        for (int i = 0; i < data.size(); i++) {
+//            Mode mode = data.get(i);
+//            int value = (int) mode.getValue();
+//            String text = null;
+//            if (value == mode.getValue() && isMemer) {
+//                text = String.valueOf(value);
+//            } else {
+//                text = String.valueOf(mode.getValue());
+//            }
+//            float v = paint.measureText(text);
+//            canvas.drawText(text, getMaxValueX(i) - v / 2, (int) mode.getValue() / maxValueY * effectiveHeight * -1 + offsetY, paint);
+//        }
+//        paint.setTextSize(textSize);
+//        paint.setColor(Color.BLACK);
+//        for (int i = 0; i < data.size(); i++) {
+//            String name = data.get(i).getName();
+//            float v = paint.measureText(name);
+//            canvas.drawText(name, getMaxValueX(i) - v / 2, offsetY * 3 * -1, paint);
+//        }
 //    }
 //
 //    @Override
-//    public boolean dispatchTouchEvent(MotionEvent event) {
-//        switch (event.getAction()) {
-//            case MotionEvent.ACTION_DOWN:
-//                return true;
-//
-//            case MotionEvent.ACTION_MOVE:
-//
-//                isOnTouch = true;
-//                getX = event.getX();
-//                invalidate();
-//                break;
-//            case MotionEvent.ACTION_UP:
-//                isOnTouch = false;
-//                invalidate();
-//                break;
-//            default:
-//                break;
-//        }
-//
-//        return super.onTouchEvent(event);
+//    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+//        super.onSizeChanged(w, h, oldw, oldh);
+//        this.parentHeight = h;
+//        this.width = w;
 //    }
 //
+//    public static class Mode {
 //
-//    private void caculatePoint(Canvas canvas, int[] whX, int[] whY) {
-//        pointFList.clear();
-//        if (lists == null || lists.size() == 0) return;
-//        int startY = (whY[1] + whX[1] + HORTEXTPADDINGLINE) * -1;
-//        int effectiveHeight = height - whY[1] + startY;
-//        int startX = STARTPADDING + whY[0];
-//        int effectiveWidth = width - whX[0] - startX;
-//        startY = startY - whY[1] / 2;
-//        int maxLength = 0;
-//        for (int i = 0; i < lists.size(); i++) {
-//            int size = lists.get(i).size();
-//            maxLength = size > maxLength ? size : maxLength;
-//        }
-//        if (maxLength <= 0) return;
-//        int averagesWidth = effectiveWidth / ((maxLength - 1) == 0 ? 1 : (maxLength - 1));
-//        mPaint.setStyle(Paint.Style.STROKE);
-//        for (int j = 0; j < lists.size(); j++) {
-//            mPaint.setColor(colors[j]);
-//            List<PointF> list = new ArrayList<>();
-//            List<HealthChangeMode> modes = lists.get(j);
-//            int size = modes.size();
-//            for (int i = 0; i < size; i++) {
-//                HealthChangeMode healthChangeMode = modes.get(i);
-//                Double aDouble = Double.valueOf(healthChangeMode.getReadNum());
-//                aDouble = aDouble > mMaxY ? mMaxY : aDouble;
-//                double v = aDouble / mMaxY * effectiveHeight;
-//                int x = startX + whX[0] / 2 + i * averagesWidth;
-//                int y = (int) (startY - v);
-//                list.add(new PointF(x, y));
-//            }
-//            if (list.size() > 1) {  //添加多两个坐标来计算控制点。
-//                list.add(0, new PointF(list.get(0).x - averagesWidth, list.get(0).y));
-//                list.add(new PointF(list.get(list.size() - 1).x + averagesWidth, list.get(list.size() - 1).y));
-//            }
+//        private double value;
+//        private String name;
 //
-//            if (list.size() == 1) {
-//                PointF pointF = list.get(0);
-//                canvas.drawCircle(pointF.x, pointF.y, 5, mPaint);
-//            }
-//            pointFList.add(list);
-//
-//
+//        public Mode(double value, String name) {
+//            this.value = value;
+//            this.name = name;
 //        }
 //
+//        public double getValue() {
+//            return value;
+//        }
 //
-//    }
+//        public void setValue(double value) {
+//            this.value = value;
+//        }
 //
+//        public String getName() {
+//            return name;
+//        }
 //
-//    private void drawVerText(Canvas canvas, int[] whX, int[] whY) {
-//        int startY = (whY[1] + whX[1] + HORTEXTPADDINGLINE) * -1;
-//        int averageHeight = (height - whY[1] + startY) / 5;
-//        int averageY = mMaxY / 5;
-//        for (int i = 0; i < 6; i++) {
-//            canvas.drawText(String.valueOf(0 + averageY * i), 0, startY - i * averageHeight, mPaint);
+//        public void setName(String name) {
+//            this.name = name;
 //        }
 //
 //    }
-//
-//    private void drawHorText(Canvas canvas, int[] whx, int[] whY) {
-//        int startX = STARTPADDING + whY[0];
-//        int averageWidth = (width - startX) / 2;
-//        if (lists.size() == 0) return;
-//        List<HealthChangeMode> healthChangeModes = lists.get(0);
-//        if (healthChangeModes.size() == 0) return;
-//        canvas.drawText(healthChangeModes.get(0).getCheckDate(), startX, -whx[1], mPaint);
-//        if (healthChangeModes.size() <= 1) return;
-//        if (healthChangeModes.size() == 2) {
-//            canvas.drawText(healthChangeModes.get(healthChangeModes.size() - 1).getCheckDate(), startX + averageWidth * 2 - whx[0], -whx[1], mPaint);
-//        } else {
-//            canvas.drawText(healthChangeModes.get(healthChangeModes.size() / 2).getCheckDate(), startX + averageWidth - whx[0] / 2, -whx[1], mPaint);
-//            canvas.drawText(healthChangeModes.get(healthChangeModes.size() - 1).getCheckDate(), startX + averageWidth * 2 - whx[0], -whx[1], mPaint);
-//        }
-//
-//    }
-//
-//    private void drawHorLine(Canvas canvas, int[] whX, int[] whY) {
-//        mPaint.setColor(Color.parseColor("#ffeeeeee"));
-//        int startY = (whY[1] + whX[1] + HORTEXTPADDINGLINE) * -1;
-//        int averageHeight = (height - whY[1] + startY) / 5;
-//        int startX = STARTPADDING + whY[0];
-//        startY = startY - whY[1] / 2;
-//        for (int i = 0; i < 6; i++) {
-//            canvas.drawLine(startX, startY - i * averageHeight, width, startY - i * averageHeight, mPaint);
-//        }
-//    }
-//
-//    //获取字体宽高
-//    private int[] getTextWidthAndHeight(String str) {
-//        int[] wh = new int[2];
-//        Rect rect = new Rect();
-//        mPaint.getTextBounds(str, 0, str.length(), rect);
-//        wh[0] = rect.width();
-//        wh[1] = rect.height();
-//        return wh;
-//    }
-//
-//
 //}
