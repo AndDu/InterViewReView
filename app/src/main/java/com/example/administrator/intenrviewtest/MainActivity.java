@@ -6,6 +6,8 @@ import android.view.View;
 
 import com.example.administrator.intenrviewtest.customview.CustomTestActivity;
 import com.example.administrator.intenrviewtest.eventdispatch.EventTestActivity;
+import com.example.administrator.intenrviewtest.notification.NotifiOnClickActivity;
+import com.example.administrator.intenrviewtest.notification.NotificationManagerActivity;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -28,5 +30,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void EventTest(View view) {
         EventTestActivity.startActivity(this);
+    }
+
+    public void notification(View view) {
+        NotificationManagerActivity.startAcitivty(this);
     }
 }

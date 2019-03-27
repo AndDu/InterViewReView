@@ -1,0 +1,24 @@
+1. 使用上8.0版本通知需要channel实现，并不是使用builder，builder会过时。
+2. cancelauto ,cancle(id),cancleAll();
+3.
+自定义通知布局样式
+通过 NotificationCompat.setContent() 可以设置自定义布局，该接口的参数为 RemoteViews 类型，通过 xml 构建出需要显示的 RemoteViews 然后调用 setContent 完成设置。自定义通知布局的可用高度取决于通知视图。普通视图布局限制为 64 dp，扩展视图布局限制为 256 dp。在 Android 4.1（API 16）以后，Notification 还支持大视图的通知，通过 Notification.bigContentView 设置对应的 RemoteViews 即可。
+
+RemoteViews bigView;
+RemoteViews smallView;
+
+// 构建 bigView 和 smallView。
+...
+
+NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
+
+// 设置自定义 RemoteViews
+builder.setContent(smallView).setSmallIcon(R.drawable.icon_notification);
+Notification notification = builder.build();
+
+// 如果系统版本 &gt;= Android 4.1，设置大视图 RemoteViews
+if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.JELLY_BEAN) {
+  notification.bigContentView = bigView;
+}
+NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+notificationManager.notify(DAILY_PUSH_NOTIFICATION_ID, notification);
