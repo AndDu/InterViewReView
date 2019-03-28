@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        Integer.valueOf(123);
         ViewServer.get(this).setFocusedWindow(this);
     }
 
