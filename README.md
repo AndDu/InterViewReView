@@ -1,2 +1,2 @@
 # InterViewReView
-面试点整理
+小坑不睬，谈何天坑。

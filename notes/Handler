@@ -1,0 +1,1 @@
+obtainmessage是从消息池中复用最近使用的message sPool(spool是最近的赋值)，如果sPool为空，也是会重新创建message， obtain()方法中可以发现；

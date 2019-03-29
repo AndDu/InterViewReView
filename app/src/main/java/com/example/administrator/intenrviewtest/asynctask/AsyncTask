@@ -1,0 +1,13 @@
+使用注意事项：
+ /**
+     * AsyncTask并不会和任何组件绑定，所以activity或者fragment被销毁的时候自身并不销毁，
+     * 所以ondestory时候要调用销毁
+     * 类要设成静态的内部类，非静态内部类会持有外部类的引用，导致无法回收释放。
+     *
+     * 当Activity重新创建时（屏幕旋转 / Activity被意外销毁时后恢复），
+     * 之前运行的AsyncTask（非静态的内部类）持有的之前Activity引用已无效，故复写的onPostExecute()将不生效，即无法更新UI操作
+     * 在Activity恢复时的对应方法 重启 任务线程
+     *
+     */
+
+源码分析：
