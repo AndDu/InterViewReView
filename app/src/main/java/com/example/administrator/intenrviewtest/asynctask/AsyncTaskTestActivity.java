@@ -28,7 +28,6 @@ public class AsyncTaskTestActivity extends AppCompatActivity {
 
         Test test = new Test();
         test.execute();
-        final ArrayDeque<Runnable> mTasks = new ArrayDeque<Runnable>();
     }
 
 
