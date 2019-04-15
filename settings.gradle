@@ -1,1 +1,1 @@
-include ':app', ':aidlclient', ':layoutoptimize'
+include ':app', ':aidlclient', ':layoutoptimize', ':imageloaderanalnyze'
