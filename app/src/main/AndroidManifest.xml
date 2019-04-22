@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.administrator.intenrviewtest">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,11 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".SchemeTestActivity">
 
@@ -38,11 +37,19 @@
         <activity android:name=".AnimationTestActivity">
 
         </activity>
-        <activity android:name=".customview.CustomTestActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity
+            android:name=".customview.CustomTestActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".eventdispatch.EventTestActivity" />
         <activity android:name=".notification.NotifiOnClickActivity" />
         <activity android:name=".notification.NotificationManagerActivity" />
+        <activity android:name=".contentprovider.ContentProviderTest">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <!-- 将本地服务设置成远程服务-->
         <!--//设置可被其他进程调用-->
         <service
@@ -58,6 +65,10 @@
 
 
         </service>
+
+        <provider
+            android:name=".contentprovider.TestProvider"
+            android:authorities="com.example.administrator.intenrviewtest" />
     </application>
 
 </manifest>

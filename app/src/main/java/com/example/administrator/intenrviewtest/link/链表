@@ -1,0 +1,2 @@
+LinkList 链表是删除添加快，查找慢
+ArrayList 是添加删除慢，查找快
