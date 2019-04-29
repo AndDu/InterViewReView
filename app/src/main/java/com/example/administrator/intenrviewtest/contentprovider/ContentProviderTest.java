@@ -28,7 +28,6 @@ public class ContentProviderTest extends AppCompatActivity {
 //        }
 
         ContentResolver contentResolver = getContentResolver();
-
         ContentValues contentValues = new ContentValues();
         contentValues.put(TestContract.TestEntry.COLUMN_NAME, "我是dsds1");
         contentValues.put(TestContract.TestEntry.COLUMN_NAME, "我是dsds2");
@@ -44,7 +43,6 @@ public class ContentProviderTest extends AppCompatActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-
 
     }
 }
