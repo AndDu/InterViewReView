@@ -29,7 +29,6 @@ public class ContentProviderTest extends AppCompatActivity {
 
         ContentResolver contentResolver = getContentResolver();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(TestContract.TestEntry.COLUMN_NAME, "我是dsds1");
         contentValues.put(TestContract.TestEntry.COLUMN_NAME, "我是dsds2");
         contentResolver.insert(TestContract.TestEntry.CONTENT_URI, contentValues);
         Cursor cursor = contentResolver.query(TestContract.TestEntry.CONTENT_URI, null, null, null, null);
