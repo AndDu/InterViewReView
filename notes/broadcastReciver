@@ -1,1 +1,1 @@
-BroadcastReciver:每次广播广播接收后都会重新创建broadcastReciver对象，并在onReciver（）方法中执行销毁，在Android设计模式中的源码又说明
+BroadcastReciver:每次广播广播接收后都会重新创建broadcastReciver对象，并在onReciver（）方法中执行销毁，在Android设计模式中的源码有说明

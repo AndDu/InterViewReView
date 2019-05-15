@@ -1,7 +1,21 @@
-1.byte在进行加法运算时会自动转换成int
+1.byte在进行加法运算时会自动转换成int,但是 final 修饰的byte在进行加法是不会，
+    final 例子：
+      byte a = 0x12;
+            byte b = 0x13;
+            final byte c = 0x14;
+            final byte d = 0x14;
+
+            byte e;
+            byte f;
+            byte g;
+            e = (byte) (a + b);  //byte在进行加法运算时会自动转换成int
+            f = (byte) (a + c); //同上，虽然c是final修饰的，但是a是以int运算，最后加出来是int
+            g = c + d; //final 修饰的类型不会变，所以不用强转回byte
 
 2.Integer
     当Integer i=128时，实际执行过程为Integer.valueOf(128),当值超过-128~127范围时，会重新创建新的对象，如果小于等于直接就拿缓存中的对象，这一点在valueOf的源码中有体现。
     所以当定义Integer i1=128，i2=128;i1!=i2;
 
 3.封装类型基本数据类型不会向上封装：Double a=4 这种是错误的;
+
+4.char转整数 char-'0'
