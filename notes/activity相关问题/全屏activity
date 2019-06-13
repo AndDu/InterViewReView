@@ -1,0 +1,5 @@
+ // 设置全屏模式
+ getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+    WindowManager.LayoutParams.FLAG_FULLSCREEN);
+ // 去除标题栏
+ requestWindowFeature(Window.FEATURE_NO_TITLE);

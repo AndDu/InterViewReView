@@ -1,2 +1,20 @@
 主要通过Uri来操作数据库。 = =
 好像没什么难度，暂时先这样= =
+
+注册内容观察者ContentObserver使用
+// 步骤1：注册内容观察者ContentObserver
+    getContentResolver().registerContentObserver（uri）；
+    // 通过ContentResolver类进行注册，并指定需要观察的URI
+
+// 步骤2：当该URI的ContentProvider数据发生变化时，通知外界（即访问该ContentProvider数据的访问者）
+    public class UserContentProvider extends ContentProvider {
+      public Uri insert(Uri uri, ContentValues values) {
+      db.insert("user", "userid", values);
+      getContext().getContentResolver().notifyChange(uri, null);
+      // 通知访问者
+   }
+}
+
+// 步骤3：解除观察者
+ getContentResolver().unregisterContentObserver（uri）；
+    // 同样需要通过ContentResolver类进行解除

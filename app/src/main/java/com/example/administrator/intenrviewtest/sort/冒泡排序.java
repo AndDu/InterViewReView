@@ -18,22 +18,19 @@ public class 冒泡排序 {
         }
     }
 
-
     public static void sort(int[] nums) {
-
-        for (int i = 0; i < nums.length; i++) {
-            for (int j = i + 1; j < nums.length; j++) {
-                int temp;
-                if (nums[j] < nums[i]) {
-                    temp = nums[i];
-                    nums[i] = nums[j];
-                    nums[j] = temp;
+        int length = nums.length;
+        int temp;
+        for (int i = 0; i < length - 1; i++) {
+            for (int j = 0; j < length - 1 - i; j++) {
+                if (nums[j] > nums[j + 1]) {
+                    temp = nums[j];
+                    nums[j] = nums[j + 1];
+                    nums[j + 1] = temp;
                 }
             }
-
         }
 
     }
-
 
 }

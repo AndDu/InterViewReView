@@ -11,5 +11,4 @@
 新建serverconnction对象
 通过包名和intent-filter绑定bindservice启动服务
 
-
 注意事项：AIDL返回方法是在异步线程中
