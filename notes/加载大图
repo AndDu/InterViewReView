@@ -1,0 +1,18 @@
+BitmapRegionDecoder 类可以分区域加载大图
+
+// 创建实例
+mDecoder = BitmapRegionDecoder.newInstance(mFile.getAbsolutePath(), false);
+
+// 获取原图片宽高
+mDecoder.getWidth();
+mDecoder.getHeight();
+
+// 加载(10, 10) - (80, 80) 区域内原始精度的Bitmap对象
+Rect rect = new Rect(10, 10, 80, 80);
+BitmapFactory.Options options = new BitmapFactory.Options();
+options.inSampleSize = 1;
+
+Bitmap bitmap = mDecoder.decodeRegion(rect, options);
+
+// 回收释放Native层内存
+mDecoder.recycle();
