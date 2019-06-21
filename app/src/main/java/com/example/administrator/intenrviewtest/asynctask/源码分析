@@ -1,7 +1,8 @@
 构造函数：通过传入的looper创建handler,
         然后创建mWorker（WorkerRunnable），这是一个实现Callable接口的类,执行doInbackgound()方法就在这个类中执行，
 
-        然后创建mFuture(FutureTask),这个一个实现了Runnable,Future的类，用来创建方法run方法（在 execute 直接用(mFuture)r.run()调用该方法），构造函数传值mWorker,在run方法中直接调用mWorker的call（）方法。
+        然后创建mFuture(FutureTask),这个一个实现了Runnable,Future的类，用来创建方法run方法（在 execute 直接用(mFuture)r.run()调用该方法），
+        构造函数传值mWorker,在run方法中直接调用mWorker的call（）方法。
         如果任务执行完成，calll没有抛异常,mFuture的done()方法执行然后通过postResult()方法通过handler回调结果。
         需要注意的是：如果在开始 mWorker 的call()方法如果抛异常，也会调用postResult()，所以...无论任务执行结果如何，都会回调postResult()；
         但是并不代表会onPostExecute(),会先通过isCallCancle()来判断调用onCancelled，onPostExecute;

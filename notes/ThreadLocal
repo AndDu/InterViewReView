@@ -1,0 +1,7 @@
+
+
+
+
+
+
+ThreadLocal是一个线程内部的数据存储类，以前是用object[] table,现在用的是map

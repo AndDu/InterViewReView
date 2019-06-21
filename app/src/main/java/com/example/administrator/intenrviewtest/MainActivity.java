@@ -1,7 +1,12 @@
 package com.example.administrator.intenrviewtest;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.example.administrator.intenrviewtest.customview.CustomTestActivity;
@@ -12,10 +17,16 @@ import com.example.administrator.intenrviewtest.notification.NotificationManager
 
 public class MainActivity extends AppCompatActivity {
 
+    private TestBrocastReciver testBrocastReciver;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        testBrocastReciver = new TestBrocastReciver();
+        IntentFilter filter = new IntentFilter();
+        filter.addAction("test");
+        registerReceiver(testBrocastReciver, filter);
     }
 
     public void onClick(View view) {
@@ -23,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 //        SchemeTestActivity.startActivity(this, "type=string&str=1&str2=1,1,2");
         AnimationTestActivity.startActivity(this);
     }
+
 
     public void customView(View view) {
         CustomTestActivity.startActivity(this);
@@ -34,6 +46,19 @@ public class MainActivity extends AppCompatActivity {
 
     public void notification(View view) {
         NotificationManagerActivity.startAcitivty(this);
+    }
+
+    public void sendNotificationInThread(View view) {
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                while (true) {
+        Intent intent = new Intent(MainActivity.this, TestBrocastReciver.class);
+        intent.setAction("test");
+        sendBroadcast(intent);
+//                }
+//            }
+//        }).start();
     }
 
     void finalTest() {
@@ -52,8 +77,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
-    void charTest(){
+    void charTest() {
 
         char a = 0x12;
         char b = 0x13;
@@ -70,4 +94,21 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    static class TestBrocastReciver extends BroadcastReceiver {
+
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Thread thread = Thread.currentThread();
+            Log.e("onReceive: ", intent.getAction() + ":  ---" + thread.getName());
+        }
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        unregisterReceiver(testBrocastReciver);
+        super.onDestroy();
+
+    }
 }

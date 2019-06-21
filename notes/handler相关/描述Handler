@@ -1,0 +1,7 @@
+handler用来发送消息和处理取出来的消息。
+messagequeen是存放发送的消息
+message 携带需要发送的消息  ，
+        通过链表实现(方便取出和插入  )，里面有个next参数，指向下一个meassge
+looper 是不停的从messagequeen中取message出来来，
+
+

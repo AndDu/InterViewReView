@@ -13,7 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".SchemeTestActivity">
 
@@ -44,11 +48,7 @@
         <activity android:name=".notification.NotifiOnClickActivity" />
         <activity android:name=".notification.NotificationManagerActivity" />
         <activity android:name=".contentprovider.ContentProviderTest">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <!-- 将本地服务设置成远程服务-->
         <!--//设置可被其他进程调用-->

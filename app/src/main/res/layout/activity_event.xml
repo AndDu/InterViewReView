@@ -237,9 +237,9 @@
         android:layout_width="match_parent"
         android:layout_height="300dp">
 
-        <com.example.administrator.intenrviewtest.eventdispatch.CustomLinearLayout2
-            android:layout_width="match_parent"
-            android:layout_height="300dp" />
+        <!--<com.example.administrator.intenrviewtest.eventdispatch.CustomLinearLayout2-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="300dp" />-->
 
         <com.example.administrator.intenrviewtest.eventdispatch.CustomLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/ll_praent"
