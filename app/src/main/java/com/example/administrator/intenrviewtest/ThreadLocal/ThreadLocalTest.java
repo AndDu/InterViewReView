@@ -1,7 +1,8 @@
-package ThreadLocal;
+package com.example.administrator.intenrviewtest.ThreadLocal;
 
 /**
  * Created by YellowHuang on 2019/6/20.
+ *
  */
 
 public class ThreadLocalTest {

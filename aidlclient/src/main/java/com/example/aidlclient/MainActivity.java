@@ -12,6 +12,8 @@ import android.view.View;
 
 import com.example.administrator.intenrviewtest.service.IMyAidlInterface;
 
+import java.util.LinkedHashMap;
+
 public class MainActivity extends AppCompatActivity {
 
     private IMyAidlInterface iMyAidlInterface;
@@ -30,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void onServiceDisconnected(ComponentName name) {
-            iMyAidlInterface=null;
+            iMyAidlInterface = null;
         }
     };
 
@@ -41,9 +43,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClick(View view) {
-        Intent intent = new Intent("com.example");
-        intent.setPackage("com.example.administrator.intenrviewtest");
-        bindService(intent,serviceConnection, Context.BIND_AUTO_CREATE);
 
+        Intent intent = new Intent("com.example");//"com.example是服务端在xml设置的action"
+        intent.setPackage("com.example.administrator.intenrviewtest"); //服务端包名
+        bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE);
     }
 }

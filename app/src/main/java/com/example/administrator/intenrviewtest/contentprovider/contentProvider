@@ -1,6 +1,14 @@
 主要通过Uri来操作数据库。 = =
 好像没什么难度，暂时先这样= =
 
+(啪啪啪,没什么难度，那么骄傲）
+ContentProvider content://<authority>/<data_path>/<id>
+                 content:// 开头
+                 authority：一般是provider的路径
+                 data_path：数据库名称
+                 id:第几条，可以省略。
+        ---2019/06/24
+
 注册内容观察者ContentObserver使用
 // 步骤1：注册内容观察者ContentObserver
     getContentResolver().registerContentObserver（uri）；

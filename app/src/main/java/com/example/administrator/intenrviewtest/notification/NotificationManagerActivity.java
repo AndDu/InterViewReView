@@ -113,37 +113,20 @@ public class NotificationManagerActivity extends AppCompatActivity {
             notificationManager.notify(id, mBuilder.build());
         } else {
 
-
             Notification.Builder builder = new Notification.Builder(this, "1"); //与channelId对应
-            Notification.Builder builder2 = new Notification.Builder(this, "1"); //与channelId对应
             //icon title text必须包含，不然影响桌面图标小红点的展示
             Intent intent = new Intent(this, NotifiOnClickActivity.class);
             PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-
-//            NotificationCompat.InboxStyle  inboxStyle = new NotificationCompat.InboxStyle();
             Notification.Style inboxStyle = new Notification.BigTextStyle();
-//            inboxStyle.setBuilder();
-//            inboxStyle.setBuilder("啦啦啦");
-//            inboxStyle.setSummaryText("我不素是SummaryText");
-//            inboxStyle.addLine("aaaaaaaaaa");
-//            inboxStyle.addLine("bbbbbbbbb");
-            builder2.setContentTitle("幸福e区111111")
-                    .setVisibility(Notification.VISIBILITY_PUBLIC)
-                    .setContentText("请注意2222222222！");
-            inboxStyle.setBuilder(builder2);
             builder.setSmallIcon(android.R.drawable.stat_notify_chat)
                     .setContentTitle("幸福e区")
                     .setContentText("超出设定的安全范围，请注意！")
                     .setContentIntent(pendingIntent)
                     .setStyle(inboxStyle)
                     .setNumber(3); //久按桌面图标时允许的此条通知的数量
-
-
             Uri alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
             // 设置通知的提示音
             builder.setSound(alarmSound);
-
-
             NotificationManager notificationManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
             NotificationChannel channel = new NotificationChannel("1", "Channel1", NotificationManager.IMPORTANCE_DEFAULT);
             channel.setImportance(notificationManager.IMPORTANCE_MAX);  // 设置通知的优先级
@@ -152,7 +135,6 @@ public class NotificationManagerActivity extends AppCompatActivity {
             channel.setLightColor(Color.RED); //小红点颜色
             channel.setShowBadge(true); //是否在久按桌面图标时显示此渠道的通知
             notificationManager.createNotificationChannel(channel);
-//            int notificationId = new Random().nextInt(Integer.MAX_VALUE);
             int notificationId = 1;
             notificationManager.notify(notificationId, builder.build());
         }
