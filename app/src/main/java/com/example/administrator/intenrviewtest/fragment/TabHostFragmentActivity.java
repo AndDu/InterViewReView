@@ -1,10 +1,10 @@
 package com.example.administrator.intenrviewtest.fragment;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTabHost;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.widget.TabHost;
 
 import com.example.administrator.intenrviewtest.R;

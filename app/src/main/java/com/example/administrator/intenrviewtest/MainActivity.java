@@ -4,14 +4,13 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
 import com.example.administrator.intenrviewtest.customview.CustomTestActivity;
 import com.example.administrator.intenrviewtest.eventdispatch.EventTestActivity;
-import com.example.administrator.intenrviewtest.notification.NotifiOnClickActivity;
 import com.example.administrator.intenrviewtest.notification.NotificationManagerActivity;
 
 

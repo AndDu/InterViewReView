@@ -6,13 +6,11 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.IBinder;
 import android.os.RemoteException;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
 import com.example.administrator.intenrviewtest.service.IMyAidlInterface;
-
-import java.util.LinkedHashMap;
 
 public class MainActivity extends AppCompatActivity {
 

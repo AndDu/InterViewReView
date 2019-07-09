@@ -8,20 +8,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.media.AudioAttributes;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.Nullable;
-import android.support.v4.app.NotificationCompat;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.Nullable;
+import androidx.core.app.NotificationCompat;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 
 import com.example.administrator.intenrviewtest.R;
-
-import java.util.Random;
 
 /**
  * Created by Administrator on 2019/3/27.
@@ -76,7 +73,7 @@ public class NotificationManagerActivity extends AppCompatActivity {
              *  实例化通知栏构造器
              */
 
-            android.support.v7.app.NotificationCompat.Builder mBuilder = new android.support.v7.app.NotificationCompat.Builder(this);
+            androidx.appcompat.app.NotificationCompat.Builder mBuilder = new androidx.appcompat.app.NotificationCompat.Builder(this);
             // 设置通知的点击行为：这里启动一个 Activity
             Intent intent = new Intent(this, NotifiOnClickActivity.class);
             PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);

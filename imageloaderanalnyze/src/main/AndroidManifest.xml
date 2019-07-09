@@ -2,6 +2,8 @@
 
     package="com.example.imageloaderanalnyze">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name="com.example.administrator.imageloaderanalyze.MyApplication"
         android:allowBackup="true"

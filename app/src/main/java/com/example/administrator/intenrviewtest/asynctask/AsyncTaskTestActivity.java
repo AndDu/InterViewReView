@@ -3,13 +3,11 @@ package com.example.administrator.intenrviewtest.asynctask;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 
 import com.example.administrator.intenrviewtest.R;
-
-import java.util.ArrayDeque;
 
 /**
  * Created by YellowHuang on 2019/3/29.
