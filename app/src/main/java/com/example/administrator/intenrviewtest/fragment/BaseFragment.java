@@ -3,8 +3,9 @@ package com.example.administrator.intenrviewtest.fragment;
 import android.app.Activity;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

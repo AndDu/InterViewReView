@@ -1,1 +1,1 @@
-include ':app', ':aidlclient', ':layoutoptimize', ':imageloaderanalnyze', ':glideanalnyze'
+include ':app', ':aidlclient', ':layoutoptimize', ':imageloaderanalnyze', ':glideanalnyze', ':jetpackdemo'

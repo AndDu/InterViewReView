@@ -69,6 +69,15 @@
         <provider
             android:name=".contentprovider.TestProvider"
             android:authorities="com.example.administrator.intenrviewtest" />
+
+
+        <receiver android:name=".brocastreciver.MyBrocastReciver">
+
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_SHUTDOWN" />
+            </intent-filter>
+
+        </receiver>
     </application>
 
 </manifest>

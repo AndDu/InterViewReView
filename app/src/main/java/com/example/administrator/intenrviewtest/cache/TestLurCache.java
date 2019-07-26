@@ -1,9 +1,10 @@
 package com.example.administrator.intenrviewtest.cache;
 
 import android.graphics.Bitmap;
-import android.support.v4.util.LruCache;
 
 import java.lang.ref.SoftReference;
+
+import androidx.collection.LruCache;
 
 /**
  * Created by YellowHuang on 2019/6/18.

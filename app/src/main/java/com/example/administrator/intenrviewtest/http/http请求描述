@@ -7,7 +7,6 @@
          d.如果还没找到IP,否则就请求根DNS服务器了。
 
     （2）三次握手
-
         a.首先由Client发出请求连接即 SYN=1 ACK=0，TCP规定SYN=1时不能携带数据，但要消耗一个序号，因此声明自己的序号是 seq=x。
         b.然后 Server 进行回复确认，即 SYN=1 ACK=1 seq=y，ack=x+1。
         c.再然后 Client 再进行一次确认，但不用SYN 了，这时即为 ACK=1，seq=x+1， ack=y+1。

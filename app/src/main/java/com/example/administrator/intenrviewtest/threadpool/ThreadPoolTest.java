@@ -13,7 +13,16 @@ public class ThreadPoolTest {
 
     //    public static final ExecutorService EXECUTORS= Executors.newCachedThreadPool();
 //    public static final ExecutorService EXECUTORS= Executors.newFixedThreadPool(1);
-//    public static final ExecutorService EXECUTORS= Executors.newSingleThreadExecutor();
-    public static final ExecutorService EXECUTORS = Executors.newScheduledThreadPool(Runtime.getRuntime().availableProcessors());
+//    public static final ExecutorService EXECUTORS = Executors.newScheduledThreadPool(Runtime.getRuntime().availableProcessors());
+    public static final ExecutorService EXECUTORS= Executors.newSingleThreadExecutor();
 
+
+    public void s(){
+        EXECUTORS.execute(new Runnable() {
+            @Override
+            public void run() {
+
+            }
+        });
+    }
 }
