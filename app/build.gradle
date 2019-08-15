@@ -26,7 +26,7 @@ android {
 
 
     sourceSets{
-        main{
+        main                {
             //分包
                 res.srcDirs=[
                         'src/main/res/layout/demo',
