@@ -27,7 +27,7 @@ import com.nostra13.universalimageloader.core.assist.FailReason;
  * @author Sergey Tarasevich (nostra13[at]gmail[dot]com)
  * @see SimpleImageLoadingListener
  * @see FailReason
- * @since 1.0.0
+ * @since meinv.0.0
  */
 public interface ImageLoadingListener {
 

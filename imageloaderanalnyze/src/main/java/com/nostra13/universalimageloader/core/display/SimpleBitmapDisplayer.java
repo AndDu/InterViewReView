@@ -24,7 +24,7 @@ import com.nostra13.universalimageloader.core.imageaware.ImageAware;
  * Just displays {@link Bitmap} in {@link com.nostra13.universalimageloader.core.imageaware.ImageAware}
  *
  * @author Sergey Tarasevich (nostra13[at]gmail[dot]com)
- * @since 1.5.6
+ * @since meinv.5.6
  */
 public final class SimpleBitmapDisplayer implements BitmapDisplayer {
 	@Override

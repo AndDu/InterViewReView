@@ -19,7 +19,7 @@ import com.example.administrator.intenrviewtest.R;
 public class TabHostFragmentActivity extends AppCompatActivity {
 
     private FragmentTabHost myTabhost;
-    private String[] mFragmentTags = {"1", "2"};
+    private String[] mFragmentTags = {"meinv", "2"};
     private Class<?>[] mFragment = {Fragment.class, Fragment.class};
 
     @Override

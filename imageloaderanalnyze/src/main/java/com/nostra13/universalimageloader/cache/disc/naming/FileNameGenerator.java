@@ -19,7 +19,7 @@ package com.nostra13.universalimageloader.cache.disc.naming;
  * Generates names for files at disk cache
  *
  * @author Sergey Tarasevich (nostra13[at]gmail[dot]com)
- * @since 1.3.1
+ * @since meinv.3.meinv
  */
 public interface FileNameGenerator {
 

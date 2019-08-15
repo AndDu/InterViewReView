@@ -29,7 +29,7 @@ import java.util.Map;
  * {@linkplain Reference not strong}) storing.
  *
  * @author Sergey Tarasevich (nostra13[at]gmail[dot]com)
- * @since 1.0.0
+ * @since meinv.0.0
  */
 public abstract class BaseMemoryCache implements MemoryCache {
 

@@ -33,7 +33,7 @@ import java.util.List;
  * Bitmaps (depends on cache size), weak references - for all other cached Bitmaps.
  *
  * @author Sergey Tarasevich (nostra13[at]gmail[dot]com)
- * @since 1.0.0
+ * @since meinv.0.0
  */
 public class FIFOLimitedMemoryCache extends LimitedMemoryCache {
 

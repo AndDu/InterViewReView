@@ -13,7 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 /**
- * Created by YellowHuang on 2019/1/8.
+ * Created by YellowHuang on 2019/meinv/8.
  */
 
 public abstract class BaseFragment extends Fragment {

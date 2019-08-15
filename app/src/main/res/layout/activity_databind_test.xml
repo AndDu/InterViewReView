@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="hanlders"
+            type="com.example.administrator.intenrviewtest.databinding.DataBindTestActivity" />
+
+        <variable
+            name="testMode"
+            type="com.example.administrator.intenrviewtest.databinding.TestMode" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:onClick="@{hanlders::ontestClick}"
+            android:text='@{testMode.aBoolean==true?"真的":"假的"}' />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:onClick="@{(view) -> hanlders.ontestClick(view)}"
+            android:text='@{testMode.aBoolean==true?"11111":"222"}' />
+
+
+        <ListView
+            android:layout_width="match_parent"
+            android:id="@+id/lv_"
+            android:layout_height="match_parent">
+
+        </ListView>
+    </LinearLayout>
+</layout>

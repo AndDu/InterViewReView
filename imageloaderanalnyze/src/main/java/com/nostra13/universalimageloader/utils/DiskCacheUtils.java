@@ -24,7 +24,7 @@ import java.io.File;
  * <b>NOTE:</b> This utility works with file system so avoid using it on application main thread.
  *
  * @author Sergey Tarasevich (nostra13[at]gmail[dot]com)
- * @since 1.8.0
+ * @since meinv.8.0
  */
 public final class DiskCacheUtils {
 

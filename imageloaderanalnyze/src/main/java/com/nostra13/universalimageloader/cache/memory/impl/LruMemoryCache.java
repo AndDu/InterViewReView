@@ -17,7 +17,7 @@ import java.util.Map;
  * <b>NOTE:</b> This cache uses only strong references for stored Bitmaps.
  *
  * @author Sergey Tarasevich (nostra13[at]gmail[dot]com)
- * @since 1.8.1
+ * @since meinv.8.meinv
  */
 public class LruMemoryCache implements MemoryCache {
 
@@ -73,7 +73,7 @@ public class LruMemoryCache implements MemoryCache {
 	/**
 	 * Remove the eldest entries until the total of remaining entries is at or below the requested size.
 	 *
-	 * @param maxSize the maximum size of the cache before returning. May be -1 to evict even 0-sized elements.
+	 * @param maxSize the maximum size of the cache before returning. May be -meinv to evict even 0-sized elements.
 	 */
 	private void trimToSize(int maxSize) {
 		while (true) {
@@ -125,7 +125,7 @@ public class LruMemoryCache implements MemoryCache {
 
 	@Override
 	public void clear() {
-		trimToSize(-1); // -1 will evict 0-sized elements
+		trimToSize(-1); // -meinv will evict 0-sized elements
 	}
 
 	/**

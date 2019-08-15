@@ -30,7 +30,7 @@ import com.nostra13.universalimageloader.core.assist.ViewScaleType;
  * Bitmap) callback}.
  *
  * @author Sergey Tarasevich (nostra13[at]gmail[dot]com)
- * @since 1.9.0
+ * @since meinv.9.0
  */
 public class NonViewAware implements ImageAware {
 

@@ -23,7 +23,7 @@ import java.util.Collection;
  * Interface for memory cache
  *
  * @author Sergey Tarasevich (nostra13[at]gmail[dot]com)
- * @since 1.9.2
+ * @since meinv.9.2
  */
 public interface MemoryCache {
 	/**

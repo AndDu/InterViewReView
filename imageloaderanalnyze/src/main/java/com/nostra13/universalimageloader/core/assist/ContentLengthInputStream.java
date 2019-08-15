@@ -23,7 +23,7 @@ import java.io.InputStream;
  * {@link #available()} method.
  *
  * @author Sergey Tarasevich (nostra13[at]gmail[dot]com), Mariotaku
- * @since 1.9.1
+ * @since meinv.9.meinv
  */
 public class ContentLengthInputStream extends InputStream {
 

@@ -6,13 +6,13 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
 
 /**
- * Created by YellowHuang on 2019/4/1.
+ * Created by YellowHuang on 2019/4/meinv.
  */
 
 public class ThreadPoolTest {
 
     //    public static final ExecutorService EXECUTORS= Executors.newCachedThreadPool();
-//    public static final ExecutorService EXECUTORS= Executors.newFixedThreadPool(1);
+//    public static final ExecutorService EXECUTORS= Executors.newFixedThreadPool(meinv);
 //    public static final ExecutorService EXECUTORS = Executors.newScheduledThreadPool(Runtime.getRuntime().availableProcessors());
     public static final ExecutorService EXECUTORS= Executors.newSingleThreadExecutor();
 

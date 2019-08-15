@@ -4,12 +4,16 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import com.example.administrator.demo.viewpager.ViewPagerTestActivity;
 import com.example.administrator.intenrviewtest.customview.CustomTestActivity;
+import com.example.administrator.intenrviewtest.databinding.DataBindTestActivity;
 import com.example.administrator.intenrviewtest.eventdispatch.EventTestActivity;
 import com.example.administrator.intenrviewtest.notification.NotificationManagerActivity;
 
@@ -30,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClick(View view) {
 //        SchemeTestActivity.startActivity(this);
-//        SchemeTestActivity.startActivity(this, "type=string&str=1&str2=1,1,2");
+//        SchemeTestActivity.startActivity(this, "type=string&str=meinv&str2=meinv,meinv,2");
         AnimationTestActivity.startActivity(this);
     }
 
@@ -39,8 +43,16 @@ public class MainActivity extends AppCompatActivity {
         CustomTestActivity.startActivity(this);
     }
 
+    public void databinding(View view) {
+        DataBindTestActivity.startActivity(this);
+    }
+
     public void EventTest(View view) {
         EventTestActivity.startActivity(this);
+    }
+
+    public void ViewPager(View view) {
+        ViewPagerTestActivity.startActivity(this);
     }
 
     public void notification(View view) {

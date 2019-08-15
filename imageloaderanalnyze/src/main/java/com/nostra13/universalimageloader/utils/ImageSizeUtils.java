@@ -28,7 +28,7 @@ import javax.microedition.khronos.opengles.GL10;
  * Provides calculations with image sizes, scales
  *
  * @author Sergey Tarasevich (nostra13[at]gmail[dot]com)
- * @since 1.8.3
+ * @since meinv.8.3
  */
 public final class ImageSizeUtils {
 
@@ -79,13 +79,13 @@ public final class ImageSizeUtils {
 	 * <p/>
 	 * <br />
 	 * The sample size is the number of pixels in either dimension that correspond to a single pixel in the decoded
-	 * bitmap. For example, inSampleSize == 4 returns an image that is 1/4 the width/height of the original, and 1/16
-	 * the number of pixels. Any value <= 1 is treated the same as 1.
+	 * bitmap. For example, inSampleSize == 4 returns an image that is meinv/4 the width/height of the original, and meinv/16
+	 * the number of pixels. Any value <= meinv is treated the same as meinv.
 	 *
 	 * @param srcSize       Original (image) size
 	 * @param targetSize    Target (view) size
 	 * @param viewScaleType {@linkplain ViewScaleType Scale type} for placing image in view
-	 * @param powerOf2Scale <i>true</i> - if sample size be a power of 2 (1, 2, 4, 8, ...)
+	 * @param powerOf2Scale <i>true</i> - if sample size be a power of 2 (meinv, 2, 4, 8, ...)
 	 * @return Computed sample size
 	 */
 	public static int computeImageSampleSize(ImageSize srcSize, ImageSize targetSize, ViewScaleType viewScaleType,
@@ -172,7 +172,7 @@ public final class ImageSizeUtils {
 	 * <pre>
 	 * srcSize(40x40), targetSize(10x10) -> scale = 0.25
 	 *
-	 * srcSize(10x10), targetSize(20x20), stretch = false -> scale = 1
+	 * srcSize(10x10), targetSize(20x20), stretch = false -> scale = meinv
 	 * srcSize(10x10), targetSize(20x20), stretch = true  -> scale = 2
 	 *
 	 * srcSize(100x100), targetSize(20x40), viewScaleType = FIT_INSIDE -> scale = 0.2
@@ -183,7 +183,7 @@ public final class ImageSizeUtils {
 	 * @param targetSize    Target (view) size
 	 * @param viewScaleType {@linkplain ViewScaleType Scale type} for placing image in view
 	 * @param stretch       Whether source size should be stretched if target size is larger than source size. If <b>false</b>
-	 *                      then result scale value can't be greater than 1.
+	 *                      then result scale value can't be greater than meinv.
 	 * @return Computed scale
 	 */
 	public static float computeImageScale(ImageSize srcSize, ImageSize targetSize, ViewScaleType viewScaleType,

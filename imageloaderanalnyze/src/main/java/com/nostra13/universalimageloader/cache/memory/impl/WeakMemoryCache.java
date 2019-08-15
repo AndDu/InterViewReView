@@ -28,7 +28,7 @@ import java.lang.ref.WeakReference;
  * <b>NOTE:</b> This cache uses only weak references for stored Bitmaps.
  *
  * @author Sergey Tarasevich (nostra13[at]gmail[dot]com)
- * @since 1.5.3
+ * @since meinv.5.3
  */
 public class WeakMemoryCache extends BaseMemoryCache {
 	@Override

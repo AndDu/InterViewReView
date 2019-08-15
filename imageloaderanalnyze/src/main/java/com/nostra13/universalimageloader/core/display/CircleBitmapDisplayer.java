@@ -40,7 +40,7 @@ import com.nostra13.universalimageloader.core.imageaware.ImageViewAware;
  * <a href="https://github.com/Pkmmte/CircularImageView">CircularImageView</a> projects for usage.
  *
  * @author Qualtagh, Sergey Tarasevich (nostra13[at]gmail[dot]com)
- * @since 1.9.5
+ * @since meinv.9.5
  */
 public class CircleBitmapDisplayer implements BitmapDisplayer {
 

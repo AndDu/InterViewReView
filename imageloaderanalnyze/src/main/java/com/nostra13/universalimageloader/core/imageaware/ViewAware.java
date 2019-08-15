@@ -31,7 +31,7 @@ import java.lang.ref.WeakReference;
  * Wrapper for Android {@link View View}. Keeps weak reference of View to prevent memory leaks.
  *
  * @author Sergey Tarasevich (nostra13[at]gmail[dot]com)
- * @since 1.9.2
+ * @since meinv.9.2
  */
 public abstract class ViewAware implements ImageAware {
 
@@ -80,7 +80,7 @@ public abstract class ViewAware implements ImageAware {
 	 * Width is defined by target {@link View view} parameters, configuration
 	 * parameters or device display dimensions.<br />
 	 * Size computing algorithm (go by steps until get non-zero value):<br />
-	 * 1) Get the actual drawn <b>getWidth()</b> of the View<br />
+	 * meinv) Get the actual drawn <b>getWidth()</b> of the View<br />
 	 * 2) Get <b>layout_width</b>
 	 */
 	@Override
@@ -104,7 +104,7 @@ public abstract class ViewAware implements ImageAware {
 	 * Height is defined by target {@link View view} parameters, configuration
 	 * parameters or device display dimensions.<br />
 	 * Size computing algorithm (go by steps until get non-zero value):<br />
-	 * 1) Get the actual drawn <b>getHeight()</b> of the View<br />
+	 * meinv) Get the actual drawn <b>getHeight()</b> of the View<br />
 	 * 2) Get <b>layout_height</b>
 	 */
 	@Override

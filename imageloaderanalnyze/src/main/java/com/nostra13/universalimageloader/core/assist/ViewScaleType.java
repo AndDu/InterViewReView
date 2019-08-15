@@ -22,7 +22,7 @@ import android.widget.ImageView.ScaleType;
  * Simplify {@linkplain ScaleType ImageView's scale type} to 2 types: {@link #FIT_INSIDE} and {@link #CROP}
  *
  * @author Sergey Tarasevich (nostra13[at]gmail[dot]com)
- * @since 1.6.1
+ * @since meinv.6.meinv
  */
 public enum ViewScaleType {
 	/**

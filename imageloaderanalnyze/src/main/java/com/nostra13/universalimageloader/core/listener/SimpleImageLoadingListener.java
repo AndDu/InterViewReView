@@ -26,7 +26,7 @@ import com.nostra13.universalimageloader.core.assist.FailReason;
  * nothing.
  *
  * @author Sergey Tarasevich (nostra13[at]gmail[dot]com)
- * @since 1.4.0
+ * @since meinv.4.0
  */
 public class SimpleImageLoadingListener implements ImageLoadingListener {
 	@Override

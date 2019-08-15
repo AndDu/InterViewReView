@@ -28,7 +28,7 @@ import com.nostra13.universalimageloader.core.imageaware.ImageAware;
  * Displays image with "fade in" animation
  *
  * @author Sergey Tarasevich (nostra13[at]gmail[dot]com), Daniel Martí
- * @since 1.6.4
+ * @since meinv.6.4
  */
 public class FadeInBitmapDisplayer implements BitmapDisplayer {
 

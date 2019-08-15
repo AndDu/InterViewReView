@@ -28,7 +28,7 @@ import static android.os.Environment.MEDIA_MOUNTED;
  * Provides application storage paths
  *
  * @author Sergey Tarasevich (nostra13[at]gmail[dot]com)
- * @since 1.0.0
+ * @since meinv.0.0
  */
 public final class StorageUtils {
 

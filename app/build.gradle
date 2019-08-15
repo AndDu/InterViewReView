@@ -19,6 +19,23 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    dataBinding {
+        enabled = true
+    }
+
+
+    sourceSets{
+        main{
+            //分包
+                res.srcDirs=[
+                        'src/main/res/layout/demo',
+                        'src/main/res/layout',
+                        'src/main/res'
+
+                ]
+        }
+    }
 }
 
 dependencies {

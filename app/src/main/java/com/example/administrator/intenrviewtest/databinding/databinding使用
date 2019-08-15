@@ -1,0 +1,22 @@
+
+初始化：在moudle下的build.gradle android 模块中加入：
+        dataBinding {
+            enabled = true
+        }
+
+之后见布局分布可以看 activity_databind_test
+
+最外层用<layout>标签嵌套，
+- <data>标签，这个标签其实就是让我们进行数据绑定的一个标签
+- <variable>标签里面分别有<type>  <name>两个标签，分别来标识变量类型和变量名称
+- <type>标签 标识变量类型，比如java.lang.String这就是String类型，com.booktest.mymvvm.ThridObservableItem 这个就是一个我自定义的一个User类型
+- <name>标签 表示的就是我们定义的一个变量名称，这个变量名称我们会在下方的布局和对应的java代码中引用到
+
+在moudle下的build-generated-source-apt-debug的com(项目包名)下可以找到实现类，去掉impl是databindingimpl的类
+
+
+设置事件监听有两种方法： 方法引用：@{variableName.methodName} 或者 @{variableName::methodName}
+
+                    监听器绑定：@((Object methodparams) -> variableName.methodName(methodparams))
+
+注意监听器绑定的返回值必须与回调方法返回值一致???????这句有疑问

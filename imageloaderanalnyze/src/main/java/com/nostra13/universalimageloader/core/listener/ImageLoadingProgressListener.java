@@ -21,7 +21,7 @@ import android.view.View;
  * Listener for image loading progress.
  *
  * @author Sergey Tarasevich (nostra13[at]gmail[dot]com)
- * @since 1.9.1
+ * @since meinv.9.meinv
  */
 public interface ImageLoadingProgressListener {
 

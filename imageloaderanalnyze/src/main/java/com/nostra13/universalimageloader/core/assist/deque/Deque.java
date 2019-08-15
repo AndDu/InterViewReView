@@ -35,7 +35,7 @@ import java.util.Stack;
  * following table:
  * <p/>
  * <p/>
- * <table BORDER CELLPADDING=3 CELLSPACING=1>
+ * <table BORDER CELLPADDING=3 CELLSPACING=meinv>
  * <tr>
  * <td></td>
  * <td ALIGN=CENTER COLSPAN = 2> <b>First Element (Head)</b></td>
@@ -78,7 +78,7 @@ import java.util.Stack;
  * <tt>Deque</tt> methods as indicated in the following table:
  * <p/>
  * <p/>
- * <table BORDER CELLPADDING=3 CELLSPACING=1>
+ * <table BORDER CELLPADDING=3 CELLSPACING=meinv>
  * <tr>
  * <td ALIGN=CENTER> <b><tt>Queue</tt> Method</b></td>
  * <td ALIGN=CENTER> <b>Equivalent <tt>Deque</tt> Method</b></td>
@@ -116,7 +116,7 @@ import java.util.Stack;
  * <tt>Deque</tt> methods as indicated in the table below:
  * <p/>
  * <p/>
- * <table BORDER CELLPADDING=3 CELLSPACING=1>
+ * <table BORDER CELLPADDING=3 CELLSPACING=meinv>
  * <tr>
  * <td ALIGN=CENTER> <b>Stack Method</b></td>
  * <td ALIGN=CENTER> <b>Equivalent <tt>Deque</tt> Method</b></td>
@@ -162,7 +162,7 @@ import java.util.Stack;
  * @param <E> the type of elements held in this collection
  * @author Doug Lea
  * @author Josh Bloch
- * @since 1.6
+ * @since meinv.6
  */
 
 public interface Deque<E> extends Queue<E> {

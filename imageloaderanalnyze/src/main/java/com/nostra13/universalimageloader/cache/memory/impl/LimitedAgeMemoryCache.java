@@ -30,7 +30,7 @@ import java.util.Map;
  *
  * @author Sergey Tarasevich (nostra13[at]gmail[dot]com)
  * @see MemoryCache
- * @since 1.3.1
+ * @since meinv.3.meinv
  */
 public class LimitedAgeMemoryCache implements MemoryCache {
 

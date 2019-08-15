@@ -35,7 +35,7 @@ import java.util.Map.Entry;
  * Bitmaps (depends on cache size), weak references - for all other cached Bitmaps.
  *
  * @author Sergey Tarasevich (nostra13[at]gmail[dot]com)
- * @since 1.3.0
+ * @since meinv.3.0
  */
 public class LRULimitedMemoryCache extends LimitedMemoryCache {
 

@@ -19,7 +19,7 @@ package com.nostra13.universalimageloader.core.assist;
  * Type of image scaling during decoding.
  *
  * @author Sergey Tarasevich (nostra13[at]gmail[dot]com)
- * @since 1.5.0
+ * @since meinv.5.0
  */
 public enum ImageScaleType {
 	/** Image won't be scaled */
@@ -30,7 +30,7 @@ public enum ImageScaleType {
 	 * Usually it's 2048x2048.<br />
 	 * If Bitmap is expected to display than it must not exceed this size (otherwise you'll get the exception
 	 * "OpenGLRenderer: Bitmap too large to be uploaded into a texture".<br />
-	 * Image will be subsampled in an integer number of times (1, 2, 3, ...) to maximum texture size of device.
+	 * Image will be subsampled in an integer number of times (meinv, 2, 3, ...) to maximum texture size of device.
 	 */
 	NONE_SAFE,
 	/**
@@ -42,7 +42,7 @@ public enum ImageScaleType {
 	 */
 	IN_SAMPLE_POWER_OF_2,
 	/**
-	 * Image will be subsampled in an integer number of times (1, 2, 3, ...). Use it if memory economy is quite
+	 * Image will be subsampled in an integer number of times (meinv, 2, 3, ...). Use it if memory economy is quite
 	 * important.<br />
 	 * Relates to {@link android.graphics.BitmapFactory.Options#inSampleSize}<br />
 	 * Note: If original image size is smaller than target size then original image <b>won't</b> be scaled.

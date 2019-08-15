@@ -28,7 +28,7 @@ import com.nostra13.universalimageloader.core.imageaware.ImageAware;
  * @author Sergey Tarasevich (nostra13[at]gmail[dot]com)
  * @see com.nostra13.universalimageloader.core.imageaware.ImageAware
  * @see LoadedFrom
- * @since 1.5.6
+ * @since meinv.5.6
  */
 public interface BitmapDisplayer {
 	/**

@@ -40,7 +40,7 @@ import com.nostra13.universalimageloader.core.imageaware.ImageViewAware;
  * <a href="https://github.com/vinc3m1/RoundedImageView">this project</a> for usage.
  *
  * @author Sergey Tarasevich (nostra13[at]gmail[dot]com)
- * @since 1.9.1
+ * @since meinv.9.meinv
  */
 public class RoundedVignetteBitmapDisplayer extends RoundedBitmapDisplayer {
 

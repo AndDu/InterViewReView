@@ -29,7 +29,7 @@ import java.util.Comparator;
  * <b>NOTE:</b> Used for internal needs. Normally you don't need to use this class.
  *
  * @author Sergey Tarasevich (nostra13[at]gmail[dot]com)
- * @since 1.0.0
+ * @since meinv.0.0
  */
 public class FuzzyKeyMemoryCache implements MemoryCache {
 

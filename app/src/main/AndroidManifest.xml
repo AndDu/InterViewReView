@@ -50,6 +50,8 @@
         <activity android:name=".contentprovider.ContentProviderTest">
 
         </activity>
+        <activity android:name=".databinding.DataBindTestActivity" />
+        <activity android:name="com.example.administrator.demo.viewpager.ViewPagerTestActivity" />
         <!-- 将本地服务设置成远程服务-->
         <!--//设置可被其他进程调用-->
         <service

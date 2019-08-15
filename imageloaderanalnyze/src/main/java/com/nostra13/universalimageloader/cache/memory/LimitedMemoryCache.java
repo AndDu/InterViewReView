@@ -33,7 +33,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  *
  * @author Sergey Tarasevich (nostra13[at]gmail[dot]com)
  * @see BaseMemoryCache
- * @since 1.0.0
+ * @since meinv.0.0
  */
 public abstract class LimitedMemoryCache extends BaseMemoryCache {
 
@@ -56,7 +56,7 @@ public abstract class LimitedMemoryCache extends BaseMemoryCache {
 		this.sizeLimit = sizeLimit;
 		cacheSize = new AtomicInteger();
 		if (sizeLimit > MAX_NORMAL_CACHE_SIZE) {
-			L.w("You set too large memory cache size (more than %1$d Mb)", MAX_NORMAL_CACHE_SIZE_IN_MB);
+			L.w("You set too large memory cache size (more than %meinv$d Mb)", MAX_NORMAL_CACHE_SIZE_IN_MB);
 		}
 	}
 

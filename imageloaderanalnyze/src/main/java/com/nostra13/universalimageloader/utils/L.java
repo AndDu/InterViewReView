@@ -23,11 +23,11 @@ import com.nostra13.universalimageloader.core.ImageLoader;
  * "Less-word" analog of Android {@link Log logger}
  *
  * @author Sergey Tarasevich (nostra13[at]gmail[dot]com)
- * @since 1.6.4
+ * @since meinv.6.4
  */
 public final class L {
 
-	private static final String LOG_FORMAT = "%1$s\n%2$s";
+	private static final String LOG_FORMAT = "%meinv$s\n%2$s";
 	private static volatile boolean writeDebugLogs = false;
 	private static volatile boolean writeLogs = true;
 

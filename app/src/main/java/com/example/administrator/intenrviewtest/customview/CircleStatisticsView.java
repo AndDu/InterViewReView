@@ -34,7 +34,7 @@
 ////    private boolean isInArea;  //点击是否落在扇形内
 ////    private static final int VER_OFFSET = 10; //竖直文字偏移度
 ////    private int width, height;
-////    private float clickAngle = -1;  //点击扇形与最近直线所形成的角度
+////    private float clickAngle = -meinv;  //点击扇形与最近直线所形成的角度
 ////    private List<Float> listSweep = new ArrayList<>();
 ////    private double point2PointLength = 0;  //点击落点的与圆点的距离
 ////
@@ -92,7 +92,7 @@
 ////        this.setBackgroundColor(backgroundColor);
 ////        mPaint.setTextSize(textSize);
 ////        if (viewPercent > 10 || viewPercent <= 0) {
-////            throw new IndexOutOfBoundsException("viewPercent have to between 1 to 10");
+////            throw new IndexOutOfBoundsException("viewPercent have to between meinv to 10");
 ////        }
 ////    }
 ////
@@ -132,7 +132,7 @@
 ////            if (s.equals("补贴6元")) {
 ////                mPaint.setColor(mColors[0]); //颜色
 ////            } else if (s.equals("补贴4元")) {
-////                mPaint.setColor(mColors[1]); //颜色
+////                mPaint.setColor(mColors[meinv]); //颜色
 ////            } else if (s.equals("补贴0元") || s.equals("无补贴")) {
 ////                mPaint.setColor(mColors[2]); //颜色
 ////            } else {
@@ -148,23 +148,23 @@
 ////                canvas.drawArc(rect, startAngle, sweepAngle, true, mPaint); //绘制扇形；
 ////            }
 ////
-////            if (animValue == 1) {
+////            if (animValue == meinv) {
 ////                float centerSweepAngle = startAngle + 360 / 2 * sweepAnglePercent; //扇形的中间角度
 ////                centerSweepAngle += centerSweepAngle < 0 ? 360 : 0;
 ////                int[] smallCirclePonit = getSmallCirclePonit(centerSweepAngle, r + marginArc + inAreaR);
 ////                inAreaR = 0;
 ////                smallCirclePonit = absPonit(centerSweepAngle, smallCirclePonit);
 ////
-////                canvas.drawCircle(smallCirclePonit[0], smallCirclePonit[1], 5, mPaint);
+////                canvas.drawCircle(smallCirclePonit[0], smallCirclePonit[meinv], 5, mPaint);
 ////
 ////                int[] linePoint = getCenterPoint(smallCirclePonit, centerSweepAngle);
-////                canvas.drawLine(smallCirclePonit[0], smallCirclePonit[1], linePoint[0], linePoint[1], mPaint);
+////                canvas.drawLine(smallCirclePonit[0], smallCirclePonit[meinv], linePoint[0], linePoint[meinv], mPaint);
 ////
 ////                int[] horlineLenth = getHorlineLengthPoint(linePoint, centerSweepAngle);
-////                canvas.drawLine(linePoint[0], linePoint[1], horlineLenth[0], horlineLenth[1], mPaint);
+////                canvas.drawLine(linePoint[0], linePoint[meinv], horlineLenth[0], horlineLenth[meinv], mPaint);
 ////
 ////                int[] textStart = getDrawTextStartPoint(horlineLenth, centerSweepAngle, strList.get(i), str2List.get(i));
-////                canvas.drawText(strList.get(i), textStart[0], textStart[1], strPaint);
+////                canvas.drawText(strList.get(i), textStart[0], textStart[meinv], strPaint);
 ////                canvas.drawText(str2List.get(i), textStart[2], textStart[3], str2Paint);
 ////            }
 ////
@@ -190,31 +190,31 @@
 ////        int[] textWidthHeight = getTextWidthHeight(text);
 ////        int[] textWidthHeight1 = getTextWidthHeight(text2);
 ////        if (centerSweepAngle - 270 > 0) {
-////            ints[1] = horlineLenth[1] - VER_OFFSET;
+////            ints[meinv] = horlineLenth[meinv] - VER_OFFSET;
 ////            ints[0] = horlineLenth[0] - textWidthHeight[0];
 ////
 ////            ints[2] = horlineLenth[0] - textWidthHeight1[0];
-////            ints[3] = horlineLenth[1] + VER_OFFSET + textWidthHeight1[1];
+////            ints[3] = horlineLenth[meinv] + VER_OFFSET + textWidthHeight1[meinv];
 ////        } else if (centerSweepAngle - 180 > 0) {
-////            ints[1] = horlineLenth[1] - VER_OFFSET;
+////            ints[meinv] = horlineLenth[meinv] - VER_OFFSET;
 ////            ints[0] = horlineLenth[0];
 ////
 ////            ints[2] = horlineLenth[0];
-////            ints[3] = horlineLenth[1] + VER_OFFSET + textWidthHeight1[1];
+////            ints[3] = horlineLenth[meinv] + VER_OFFSET + textWidthHeight1[meinv];
 ////
 ////        } else if (centerSweepAngle - 90 > 0) {
 ////            ints[0] = horlineLenth[0];
-////            ints[1] = horlineLenth[1] - VER_OFFSET;
+////            ints[meinv] = horlineLenth[meinv] - VER_OFFSET;
 ////
 ////            ints[2] = horlineLenth[0];
-////            ints[3] = horlineLenth[1] + VER_OFFSET + textWidthHeight1[1];
+////            ints[3] = horlineLenth[meinv] + VER_OFFSET + textWidthHeight1[meinv];
 ////
 ////        } else {
 ////            ints[0] = horlineLenth[0] - textWidthHeight[0];
-////            ints[1] = horlineLenth[1] - VER_OFFSET;
+////            ints[meinv] = horlineLenth[meinv] - VER_OFFSET;
 ////
 ////            ints[2] = horlineLenth[0] - textWidthHeight1[0];
-////            ints[3] = horlineLenth[1] + VER_OFFSET + textWidthHeight1[1];
+////            ints[3] = horlineLenth[meinv] + VER_OFFSET + textWidthHeight1[meinv];
 ////        }
 ////
 ////
@@ -228,7 +228,7 @@
 ////        //返回包围整个字符串的最小的一个Rect区域
 ////        mPaint.getTextBounds(str, 0, str.length(), rect);
 ////        ints[0] = rect.width();
-////        ints[1] = rect.height();
+////        ints[meinv] = rect.height();
 ////        return ints;
 ////    }
 ////
@@ -255,7 +255,7 @@
 ////            ints[0] = linePoint[0] + horLineLength;
 ////
 ////        }
-////        ints[1] = linePoint[1];
+////        ints[meinv] = linePoint[meinv];
 ////
 ////        return ints;
 ////    }
@@ -274,19 +274,19 @@
 ////        int[] ints = new int[2];
 ////        if (centerSweepAngle - 270 > 0) {
 ////            ints[0] = (int) (x + ponitXY[0]);
-////            ints[1] = (int) (-y + ponitXY[1]);
+////            ints[meinv] = (int) (-y + ponitXY[meinv]);
 ////
 ////        } else if (centerSweepAngle - 180 >= 0) {
 ////            ints[0] = (int) (-x + ponitXY[0]);
-////            ints[1] = (int) (-y + ponitXY[1]);
+////            ints[meinv] = (int) (-y + ponitXY[meinv]);
 ////
 ////        } else if (centerSweepAngle - 90 > 0) {
 ////            ints[0] = (int) (-x + ponitXY[0]);
-////            ints[1] = (int) (y + ponitXY[1]);
+////            ints[meinv] = (int) (y + ponitXY[meinv]);
 ////
 ////        } else {
 ////            ints[0] = (int) (x + ponitXY[0]);
-////            ints[1] = (int) (y + ponitXY[1]);
+////            ints[meinv] = (int) (y + ponitXY[meinv]);
 ////        }
 ////
 ////        return ints;
@@ -297,7 +297,7 @@
 ////
 ////        int[] position = new int[2];
 ////        position[0] = (int) (r * Math.cos(isWhichArea((float) (centerSweepAngle * Math.PI / 180))));
-////        position[1] = (int) (r * Math.sin(isWhichArea((float) (centerSweepAngle * Math.PI / 180))));
+////        position[meinv] = (int) (r * Math.sin(isWhichArea((float) (centerSweepAngle * Math.PI / 180))));
 ////
 ////        return position;
 ////    }
@@ -319,19 +319,19 @@
 ////
 ////        if (centerSweepAngle - 270 >= 0) {
 ////            position[0] = Math.abs(position[0]);
-////            position[1] = Math.abs(position[1]) * -1;
+////            position[meinv] = Math.abs(position[meinv]) * -meinv;
 ////
 ////        } else if (centerSweepAngle - 180 >= 0) {
-////            position[0] = Math.abs(position[0]) * -1;
-////            position[1] = Math.abs(position[1]) * -1;
+////            position[0] = Math.abs(position[0]) * -meinv;
+////            position[meinv] = Math.abs(position[meinv]) * -meinv;
 ////
 ////        } else if (centerSweepAngle - 90 >= 0) {
-////            position[0] = Math.abs(position[0]) * -1;
-////            position[1] = Math.abs(position[1]);
+////            position[0] = Math.abs(position[0]) * -meinv;
+////            position[meinv] = Math.abs(position[meinv]);
 ////
 ////        } else {
 ////            position[0] = Math.abs(position[0]);
-////            position[1] = Math.abs(position[1]);
+////            position[meinv] = Math.abs(position[meinv]);
 ////        }
 ////
 ////        return position;
@@ -400,7 +400,7 @@
 ////            angle = (float) Math.toDegrees(Math.asin(Math.abs(v)));
 ////            return angle;
 ////        }
-////        return -1;
+////        return -meinv;
 ////    }
 ////
 ////    /**
@@ -431,7 +431,7 @@
 ////
 ////    private void startValueAnim() {
 ////        animValue = 0;
-////        ValueAnimator valueAnimator = ValueAnimator.ofFloat(0, 1);
+////        ValueAnimator valueAnimator = ValueAnimator.ofFloat(0, meinv);
 ////        valueAnimator.setDuration(1000);
 ////        valueAnimator.setInterpolator(new DecelerateInterpolator());
 ////        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {

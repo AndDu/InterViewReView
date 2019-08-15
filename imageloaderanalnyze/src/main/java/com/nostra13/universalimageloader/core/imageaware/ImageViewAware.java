@@ -31,7 +31,7 @@ import java.lang.reflect.Field;
  * leaks.
  *
  * @author Sergey Tarasevich (nostra13[at]gmail[dot]com)
- * @since 1.9.0
+ * @since meinv.9.0
  */
 public class ImageViewAware extends ViewAware {
 

@@ -24,7 +24,7 @@ import java.io.OutputStream;
  * Provides I/O operations
  *
  * @author Sergey Tarasevich (nostra13[at]gmail[dot]com)
- * @since 1.0.0
+ * @since meinv.0.0
  */
 public final class IoUtils {
 

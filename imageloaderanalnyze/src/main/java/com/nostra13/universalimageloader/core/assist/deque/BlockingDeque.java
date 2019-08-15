@@ -26,7 +26,7 @@ import java.util.concurrent.TimeUnit;
  * up.  These methods are summarized in the following table:
  * <p/>
  * <p/>
- * <table BORDER CELLPADDING=3 CELLSPACING=1>
+ * <table BORDER CELLPADDING=3 CELLSPACING=meinv>
  * <tr>
  * <td ALIGN=CENTER COLSPAN = 5> <b>First Element (Head)</b></td>
  * </tr>
@@ -101,7 +101,7 @@ import java.util.concurrent.TimeUnit;
  * <tt>BlockingDeque</tt> methods as indicated in the following table:
  * <p/>
  * <p/>
- * <table BORDER CELLPADDING=3 CELLSPACING=1>
+ * <table BORDER CELLPADDING=3 CELLSPACING=meinv>
  * <tr>
  * <td ALIGN=CENTER> <b><tt>BlockingQueue</tt> Method</b></td>
  * <td ALIGN=CENTER> <b>Equivalent <tt>BlockingDeque</tt> Method</b></td>
@@ -170,7 +170,7 @@ import java.util.concurrent.TimeUnit;
  *
  * @param <E> the type of elements held in this collection
  * @author Doug Lea
- * @since 1.6
+ * @since meinv.6
  */
 public interface BlockingDeque<E> extends BlockingQueue<E>, Deque<E> {
     /*
