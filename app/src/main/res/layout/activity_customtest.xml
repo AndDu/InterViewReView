@@ -7,33 +7,49 @@
 
     <com.example.administrator.intenrviewtest.customview.CustomViewGroup2
         android:layout_width="wrap_content"
-        android:background="@color/colorAccent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent">
 
         <TextView
             android:layout_width="wrap_content"
-            android:text="我是测试1"
-            android:layout_marginTop="5dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:layout_height="wrap_content" />
+            android:layout_marginTop="5dp"
+            android:text="我是测试1" />
 
         <TextView
             android:layout_width="wrap_content"
-            android:text="我是测试2"
+            android:layout_height="wrap_content"
             android:layout_marginRight="30dp"
             android:layout_marginBottom="10dp"
-            android:layout_height="wrap_content" />
+            android:text="我是测试2" />
 
         <TextView
             android:layout_width="wrap_content"
-            android:text="我是测试3"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:layout_height="wrap_content" />
+            android:text="我是测试3" />
 
         <TextView
             android:layout_width="wrap_content"
-            android:text="我是测试4"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="我是测试4" />
 
     </com.example.administrator.intenrviewtest.customview.CustomViewGroup2>
+
+
+    <com.example.administrator.intenrviewtest.customview.SimpleProvinceView
+        android:id="@+id/simpleprovince"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#cfd0d9"
+        android:paddingLeft="4dp"
+        android:paddingTop="4dp">
+
+    </com.example.administrator.intenrviewtest.customview.SimpleProvinceView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="#cfd0d9" />
 </LinearLayout>
