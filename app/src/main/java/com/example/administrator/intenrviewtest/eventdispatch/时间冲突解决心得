@@ -1,0 +1,30 @@
+
+
+
+
+公司有一个ListView嵌套listView中加了侧滑删除商品功能，由于事件冲突无法侧滑出来。
+
+事件冲突解决的办法 有且 仅有两种,听我吹:
+    1.外部拦截法：所谓外部拦截法就是事件先经过了父容器的拦截    处理    ，如果父容器需要处理此事件就拦截，不需要就不拦截，这样就可以解决冲突问题了
+                所以这个方法的核心就在父容器的onInterceptTouchEvent做好相应的处理。
+
+    2.内部拦截法：内部拦截法是指事件先经过子View    处理    ，如果需要此事件就消耗掉，如果不需要就不做处理返回给父容器，
+                这个方法的核心在于requestDisallowInterceptTouchEvent方法，来确定父容器是否拦截事件。
+                a. parent.requestDisallowInterceptTouchEvent(false) 允许父控件拦截事件
+                b. parent.requestDisallowInterceptTouchEvent(true) 禁止父控件拦截事件
+
+然后父控件不能拦截down事件，拦截了之后其他控件就接收不到事件了，这个是事件分发基础。
+
+解决经过：
+虽然说小孩才做选择，大人全都要，但是我还是做出了选择，我选先用第二种方法解决：
+    内部拦截法：
+    解决思路：这个其实就是横竖滑动的冲突，只要判断ev.getX ev.getY 判断滑动的距离大小就能知道滑动的方向了，然后禁止父容器拦截事件就好了。
+
+   1.原先控件需要在outouchEvent的down事件中初始化东西，所以我把他down事件中需要初始化的操作放在了dispatchOntouchEvent的down事件中，
+     因为如果事件分发的dispatchOntouchEvent没有被修改的话，肯定会全部分发一次的，所以保证了初始化。
+   2.然后在move事件的时候，通过判断横竖滑动的距离 parent.requestDisallowInterceptTouchEvent(true)拦截这个事件给子View。
+   3.然后在up时候 如果判断move有拦截parent.requestDisallowInterceptTouchEvent(isMove)来判断是否拦截事件，顺便重置isMove的状态。
+
+   这样问题就解决了。
+
+    外部拦截法：

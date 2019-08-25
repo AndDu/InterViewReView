@@ -25,7 +25,8 @@ public class CustomViewGroup2 extends ViewGroup {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-
+        maxWidth = 0;
+        totalHeight = 0;
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
             View childAt = getChildAt(i);
@@ -90,7 +91,7 @@ public class CustomViewGroup2 extends ViewGroup {
 
             childAt.layout(lp.leftMargin + left, top + lp.topMargin, right + measuredWidth, b + measuredHeight + lp.topMargin);
 
-            top = top + lp.topMargin + lp.bottomMargin +measuredHeight;
+            top = top + lp.topMargin + lp.bottomMargin + measuredHeight;
             left = left;
             right = right;
             b = bottom + measuredHeight + lp.topMargin + lp.bottomMargin;
