@@ -12,3 +12,6 @@
 通过包名和intent-filter绑定bindservice启动服务
 
 注意事项：AIDL返回方法是在异步线程中
+
+
+AIDL之间可以传递的数据：基本数据类型，String ，ArrAyList ，HashMap, AIDL对象本身, parcelable

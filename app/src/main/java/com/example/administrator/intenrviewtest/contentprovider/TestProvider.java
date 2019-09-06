@@ -6,6 +6,7 @@ import android.content.UriMatcher;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -20,7 +21,7 @@ public class TestProvider extends ContentProvider {
 
     private MySqliteHelper mySqliteHelper;
 
-    static UriMatcher buildUriMatcher() {
+    public static UriMatcher buildUriMatcher() {
         UriMatcher uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
         String authority = TestContract.CONTENT_AUTHORITY;
         uriMatcher.addURI(authority, TestContract.PATH_TEST, TestContract.RETURNCODE);

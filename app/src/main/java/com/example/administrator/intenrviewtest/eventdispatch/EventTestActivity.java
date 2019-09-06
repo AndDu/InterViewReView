@@ -3,6 +3,7 @@ package com.example.administrator.intenrviewtest.eventdispatch;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.RectF;
 import android.os.Bundle;
 import androidx.annotation.IdRes;
 import androidx.annotation.Nullable;
@@ -54,6 +55,7 @@ public class EventTestActivity extends Activity implements RadioGroup.OnCheckedC
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
+        RectF rectF = new RectF();
 
         switch (ev.getAction()) {
             case MotionEvent.ACTION_DOWN:
