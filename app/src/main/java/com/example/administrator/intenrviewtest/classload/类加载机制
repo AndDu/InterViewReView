@@ -1,0 +1,68 @@
+
+在类的 “首次主动使用” 的时候会进行类的加载
+
+创建对象的方式有多种：new 反射 clone
+下面通过new的关键字来解释：
+类在加载过程：加载，连接（验证，准备，解析），初始化
+加载：当，将.class文件加载到内存的一个byte数组里面，然后产生于对应加载类的java.lang.Class对象（话说打包成dex了哪还有.class文件加载?）
+连接：
+    a.验证: 验证是？这个很多（）
+        （1）将已加载到内存中的类合并大Java运行环境中去
+        （2）类文件结构检查，符合Java语法规范，例如final的方法没有被覆盖，final的类没有子类，抽象方法已重写之类的。
+        （3）确保字节码可以安全的被Java虚拟机执行
+        （4）二进制兼容性检查（这个还不是很懂，希望下次看可以有新的理解吧）
+    b.准备：按顺序初始化静态变量（分配内存，例如int 4字节，long 8字节，然后设置初始值），如果有父类，先初始化父类的静态属性。
+    c.解析：将符号引用改成直接引用（例如加载的类用到了B类的b方法，那么他会找到B类b方法的内存地址）。（这个涉及到Java字节码解析的：https://mp.weixin.qq.com/s?__biz=MzIwMzYwMTk1NA==&mid=2247483835&idx=1&sn=68eabd1942b04c7bff8f8cfa63378996&chksm=96cda0f6a1ba29e0ced05a08f2468fd3eaa7785f3cb5821150aae3401f06a6511b7292665664&scene=21#wechat_redirect）
+
+初始化：双亲委任机制，先交给父类加载，父类加载不了，才给自己加载。
+    a.BootstrapClassLoader（根加载器） 加载rt.jar下面的类
+    b.extensionClassLoder(ExtClassLoader)（扩展加载器）负责加载，父加载器是bootstrapClassLoader（不是父类）
+    c.SystemClassLoader(AppclassLoader)（应用类加载器） 负责加载CLASSPATH指定的路径的jar或者目录,父加载器是ExtClassLoader（不是父类）
+    d.自定义类加载器：父加载器是AppclassLoader（不是父类）
+
+
+获取当前object的类加载器及加载器的父加载器。
+ Object object=new Object()
+ ClassLoader loader=object.getClass().getClassLoader();
+ while(loader!=null){
+    sys.out(loader)
+    loader=loader.getParent();
+ }
+ 注意：JVM 是Bootstrap是不会向Java程序提供Bootstrap的引用，所以当获取对象的classloader为null的时候，即是Bootstrap
+
+问题:为什么要使用双亲委任模式来加载类
+    为了确保一个类只会被加载一次= =
+
+初始化时机：首次主动使用，什么是主动使用？
+   a.创建类的示例
+   b.调用类的静态属性和为类的静态属性赋值
+   c.调用类的静态方法。
+   d.通过class反射来创建对象，这个归为a.
+   e.初始化一个类的子类，初始化类之前如果有父类的话会先初始化父类。
+   f.Jvm虚拟机启动时被标记为启动的类，也就是类main()方法中的类。
+
+tip:
+  1.如果初始化了就不会重新初始化了,全是主动初始化一次(类加载的时候只会加载一次，加载成Java.lang.Class对象那次。)
+  2.在编译时候能确定下来的静态变量（常量）不会初始化类,如（public static final int a=3/1;）如果用类名.属性不会去初始化这个类(编译常量)，
+    因为这个a在编译成class文件的时候值 a=3，所以不需要去初始化；
+    然后如（public static final int a=new random().nextInt(100);）这个是会初始化类的，因为a在运行时才能确定值（运行时常量）。
+  3.初始化之前是加载和连接，如果类没有被加载和连接，会先加载和连接（验证，准备，解析）
+  4.如果父类没有初始化，会先初始化父类。
+  5.如果类中存在初始化语句，会依次初始化初始化语句。
+
+类初始化的顺序：
+    类的静态属性（包括静态代码块和静态属性，按顺序加载）
+    类的非静态属性
+    类的非静态代码块
+    类的构造函数
+
+    有父类的话:
+
+    父类的静态属性（包括静态代码块和静态属性，按顺序加载）
+    子类的静态属性（包括静态代码块和静态属性，按顺序加载）
+    父类的非静态属性
+    父类的非静态代码块
+    父类的构造函数
+    子类的非静态属性
+    子类的非静态代码块
+    子类的构造函数

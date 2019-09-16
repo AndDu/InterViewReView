@@ -17,10 +17,23 @@ import com.example.administrator.intenrviewtest.databinding.DataBindTestActivity
 import com.example.administrator.intenrviewtest.eventdispatch.EventTestActivity;
 import com.example.administrator.intenrviewtest.notification.NotificationManagerActivity;
 
+import java.util.Random;
+
 
 public class MainActivity extends AppCompatActivity {
 
     private TestBrocastReciver testBrocastReciver;
+    //    public static final int A = 10 / 0;
+    public static final int B = 10 / 4;
+    public static final int C = new Random().nextInt(100);
+
+    { //类的非静态代码块
+        abc = 33;
+        Log.e("instance initializer: ", C + "");
+    }
+
+    public int abc;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         testBrocastReciver = new TestBrocastReciver();
         IntentFilter filter = new IntentFilter();
+
         filter.addAction("test");
         registerReceiver(testBrocastReciver, filter);
     }
@@ -40,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void customView(View view) {
+        Log.e("onCreate: ", abc + "");
         CustomTestActivity.startActivity(this);
     }
 

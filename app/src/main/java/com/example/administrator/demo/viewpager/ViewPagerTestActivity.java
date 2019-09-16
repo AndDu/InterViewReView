@@ -24,7 +24,6 @@ import androidx.viewpager.widget.ViewPager;
 
 public class ViewPagerTestActivity extends AppCompatActivity {
 
-
     private ViewPager viewpager;
     private ArrayList<View> views;
 

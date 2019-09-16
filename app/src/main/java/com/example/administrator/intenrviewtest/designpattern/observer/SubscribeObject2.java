@@ -8,7 +8,7 @@ public class SubscribeObject2 extends Observable {
     private String oldStr;
 
     @Override
-    public synchronized void setChanged() {
+    public synchronized void setChanged()    {
         super.setChanged();
     }
 

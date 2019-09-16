@@ -1,0 +1,11 @@
+1.初步了解RxJava2.X的使用流程
+
+2.探索Observable发送数据的流程
+
+3.明白Observer是如何接收数据的
+
+4.解析Observable与Observer的勾搭（如何关联）过程
+
+5.探索RxJava线程切换的奥秘
+
+6.了解RxJava操作符的实现原理
