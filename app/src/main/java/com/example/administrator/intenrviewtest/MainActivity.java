@@ -16,6 +16,7 @@ import com.example.administrator.intenrviewtest.customview.CustomTestActivity;
 import com.example.administrator.intenrviewtest.databinding.DataBindTestActivity;
 import com.example.administrator.intenrviewtest.eventdispatch.EventTestActivity;
 import com.example.administrator.intenrviewtest.notification.NotificationManagerActivity;
+import com.example.administrator.intenrviewtest.spannablestring.SpannableStringTest;
 
 import java.util.Random;
 
@@ -118,6 +119,11 @@ public class MainActivity extends AppCompatActivity {
         f = (char) (a + c); //同上，虽然c是final修饰的，但是a是以int运算，最后加出来是int
         g = c + d; //final 修饰的类型不会变，所以不用强转回byte
 
+    }
+
+    public void SpannableString(View view) {
+
+        SpannableStringTest.startActivity(this);
     }
 
     static class TestBrocastReciver extends BroadcastReceiver {

@@ -13,11 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".SchemeTestActivity">
 
@@ -52,6 +48,14 @@
         </activity>
         <activity android:name=".databinding.DataBindTestActivity" />
         <activity android:name="com.example.administrator.demo.viewpager.ViewPagerTestActivity" />
+        <activity android:name=".spannablestring.SpannableStringTest" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
         <!-- 将本地服务设置成远程服务-->
         <!--//设置可被其他进程调用-->
         <service

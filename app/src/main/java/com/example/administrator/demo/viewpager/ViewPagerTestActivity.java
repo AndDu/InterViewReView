@@ -112,6 +112,22 @@ public class ViewPagerTestActivity extends AppCompatActivity {
         }
 
 
+        @Override
+        public int getItemPosition(@NonNull Object object) {
+            /**
+             * 在ViewPager中同样有notifyDataSetChanged()对PagerAdpter中数据更新，
+             * 但是通常像ListView中的ArrayAdapter调用notifyDataSetChange()，
+             * 页面不会像我们认为的那样立即进行更新。因为PagerAdapter在刷新过程中，
+             * 每次都会调用notifyDataSetChanged()时，都会调用getItemPosition(Object object)方法，
+             * 该方法会便历ViewPager所有的Item，并且为每个Item返回一个状态值（POSITION_NONE/POSITION_UNCHANGED），
+             * 如果返回值为POSITION_NONE 那么该Item会被destroyItem(ViewGroup container,
+             * int position, Object object)方法remove掉，然后重新加载，如果是POSITION_UNCHANGED，
+             * 则不会重新加载，在默认的情况下，始终为POSITION_UNCHANGED，所以我们要在ViewPager更新数据，
+             * 就需要重写getItemPosition(Object object)
+             */
+            return POSITION_NONE;
+        }
+
         @NonNull
         @Override
         public Object instantiateItem(@NonNull ViewGroup container, int position) {

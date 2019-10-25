@@ -2,6 +2,7 @@ package com.example.administrator.intenrviewtest.customview;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -34,6 +35,12 @@ public class CustomTestActivity extends AppCompatActivity {
         simpleprovince = findViewById(R.id.simpleprovince);
         int densityDpi = (int) (getResources().getDisplayMetrics().density * 4 + 0.5);
 
+        //通过看View的时间分发源码看到的
+//        Rect outRect = new Rect();
+//        //获取子View的位置范围
+//        simpleprovince.getHitRect(outRect);
+//        //判断点(x,y)有没有落在某个范围内
+//        outRect.contains(x,y)
 
         int widthPixels = (getResources().getDisplayMetrics().widthPixels - densityDpi);
         int width = widthPixels / 9 - 1;
