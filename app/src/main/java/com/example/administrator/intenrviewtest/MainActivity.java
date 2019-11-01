@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.content.IntentFilter;
 
 import androidx.appcompat.app.AppCompatActivity;
+import io.reactivex.Observable;
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -19,6 +22,7 @@ import com.example.administrator.intenrviewtest.notification.NotificationManager
 import com.example.administrator.intenrviewtest.spannablestring.SpannableStringTest;
 
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -27,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     //    public static final int A = 10 / 0;
     public static final int B = 10 / 4;
     public static final int C = new Random().nextInt(100);
+    private final  static  String TAG =MainActivity.class.getSimpleName();
 
     { //类的非静态代码块
         abc = 33;
@@ -45,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
 
         filter.addAction("test");
         registerReceiver(testBrocastReciver, filter);
+
+
     }
 
     public void onClick(View view) {

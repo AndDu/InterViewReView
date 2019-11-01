@@ -1,1 +1,103 @@
+fromIterable just timer fromArray interval intervalRange range
 
+map flatMap concatMap buffer
+
+merge  concatArrayDelayError zip combineLatest reduce collect  startWith/startWithArray count
+
+delay do系列操作符 onErrorReturn / onErrorReturnItem onExceptionResumeNext / onErrorResumeNext
+retry retryUntil  repeat retryWhen debounce subscribeOn / ObserverOn
+
+filter distinct distinctUntilChanged skip/skipLast take/takeLast   elementAt
+(和命名有区别)ignoreElements  ofType throttleFirst/throttleLast
+
+all repeatUntil takeUntil takeWhile skipWhile sequenceEqual contains isEmpty amb defaultIfEmpty
+
+
+1。创建操作符
+fromIterable  将数组单个返回
+just
+timer
+fromArray     将数组一次返回
+interval      下面代码表示每5秒发送一次，从0开始
+intervalRange      下面代码表示每5秒发送一次，从0开始
+range
+
+fromIterable just timer fromArray interval intervalRange range
+2.转换操作符
+map
+flatMap 重新包装observable发送数据,不保证顺序
+concatMap 重新包装observable发送数据,和flatMap不一样，concatMap保证顺序
+buffer   将数据分段发送  buffer 中的参数是每段数据的个数
+
+map flatMap concatMap buffer
+3.合并操作符
+merge
+         *
+         * merge操作符是把多个Observable合并成一个进行发射。merge可能会让合并到Observable的数据顺序发生错乱(组合被观察者数量<=4个)(并行无序)
+         * mergeArray操作符和merge作用一样，但不同的是组合被观察者数量>4个)(并行无序)
+         *
+         * concat操作符也是把多个Observable合并成一个进行发射。但concat则保证合并的每个Observable的事件按顺序发射出去。(组合被观察者数量<=4个)(串行有序)
+         * concatArray操作符和concat作用一样，但不同的是组合被观察者数量>4个)(串行有序)
+         */
+
+concatArrayDelayError
+zip 将两个发射源发送的数据按顺序发射，长度以短的为准
+combineLatest        //当两个Observable 中的任何一个发送了数据，
+                      将先发送了数据的Observable的最新（最后）一个数据和另一个Observable发送的每个数据结合，
+                        最终基于该结合的结果发送数据
+                      //与zip()的区别： zip()是按个数合并，即1对1合并；而combineLatest()是基于时间合并，，即在同一时间点上合并
+reduce 减少 减少事件，以某种规则去把事件处理了,是否定义第一个数据
+collect 将发送的数据收集到某个容器中
+startWith/startWithArray  事件数据发送前需要发送的数据
+count
+merge  concatArrayDelayError zip combineLatest reduce collect  startWith/startWithArray count
+4.功能操作符
+delay  很多方法
+do 系列操作符
+       * doOnEach() :当Observable每发送一次事件就会调用一次(包含onNext()，onError()，onComplete())
+         * doOnNext(): 执行 onNext()前调用
+         * doAfterNext()： 执行onNext()后调用
+         * doOnComplete()：执行onComplete()前调用
+         * doOnError():执行 onError()前调用
+         * doOnTerminate(): 执行终止(无论正常发送完毕/异常终止)  正常发送完毕没见执行
+         * doFinally(): 最后执行
+         * doOnSubscribe() ：观察者订阅是调用
+         * doOnUnScbscribe()： 观察者取消订阅时调用
+onErrorReturn / onErrorReturnItem
+onExceptionResumeNext / onErrorResumeNext //遇到错误时发送一个新的Observable 。并且正常终止.注意原Observable后面的事件不会再发送
+                                                  //如果捕获Exception的话使用onExceptionResumeNext() ，捕获错误的用onErrorResumeNext()
+retry   很多方法
+retryUntil  发送事件遇到错误，直到满足条件后不再重试
+（这个要试一下）retryWhen  遇到错误时，将发生的错误传递给一个新的被观察者(Observable)，并决定是否需要重新订阅原始被观察者(Observable) &  发送事件
+repeat
+debounce 一段时间后无操作就会发送事件（只会发送最后一次操作的事件）
+subscribeOn / ObserverOn
+
+5.过滤操作符
+filter
+distinct 去除集合中重复的数据
+distinctUntilChanged  去除连续重复的数据
+skip/skipLast         //skip跳过前n项
+                      //skipLast 跳过后面的n项
+take/takeLast         //take取前面N项
+                      //takeLast取后面N项
+elementAt  发射第N项数据
+(和命名有区别)ignoreElements  不管发射的数据.只希望在它完成时和遇到错误时收到通知
+ofType 接收某一个类型数据
+throttleFirst/throttleLast         //throttleFirst 取前几秒的第一次事件
+                                   //throttleFirst 取前几秒的最后一次事件
+
+
+6.条件操作符
+all 是否所有数据都满足某个条件
+repeatUntil 重复发送指令直到满足某个条件后停止
+takeUntil 不满足这个条件不会停止发送事件
+takeWhile 不满足这个条件不会发送事件
+skipWhile 跳过满足条件的事件，发送不满足条件的事件
+sequenceEqual 判断两个事件发送的数据是否相等，第三个参数亦可以通通过判断某个item来判断是否相等
+contains  判断发送的数据是否包含某一项数据
+isEmpty
+amb 发送 先发送事件ObservableSource，另外的摒弃掉
+defaultIfEmpty defaultIfEmpty在仅仅发送onComplete时候发送
+
+all repeatUntil takeUntil takeWhile skipWhile sequenceEqual contains isEmpty amb defaultIfEmpty

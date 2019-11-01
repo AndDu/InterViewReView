@@ -19,7 +19,7 @@ import androidx.databinding.ViewDataBinding;
 
 public class DataBindTestActivity extends AppCompatActivity {
 
-    private ActivityDatabindTestBinding viewDataBinding;
+    private ActivityDatabindTestBindingImpl viewDataBinding;
     private ListView lv_;
 
 
