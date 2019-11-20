@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     //    public static final int A = 10 / 0;
     public static final int B = 10 / 4;
     public static final int C = new Random().nextInt(100);
-    private final  static  String TAG =MainActivity.class.getSimpleName();
+    private final static String TAG = MainActivity.class.getSimpleName();
 
     { //类的非静态代码块
         abc = 33;
@@ -51,7 +52,29 @@ public class MainActivity extends AppCompatActivity {
         filter.addAction("test");
         registerReceiver(testBrocastReciver, filter);
 
+        Observable.range(0, 10) //
+                .delay(2,TimeUnit.SECONDS)
+                .subscribe(new Observer<Integer>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
 
+                    }
+
+                    @Override
+                    public void onNext(Integer integer) {
+                        Log.e(TAG, "onNext: "+integer );
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
     }
 
     public void onClick(View view) {

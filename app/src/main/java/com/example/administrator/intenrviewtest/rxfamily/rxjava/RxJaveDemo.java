@@ -1,4 +1,4 @@
-package com.example.administrator.intenrviewtest.rxjava;
+package com.example.administrator.intenrviewtest.rxfamily.rxjava;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -196,6 +196,7 @@ public class RxJaveDemo {
         });
 
         //--------------------------------------- timer() ---------------------------------------------------
+        //2s后发送一个事件
         Observable.timer(2, TimeUnit.SECONDS) //延时任务
                 .subscribe(new Observer<Long>() {
                     @Override

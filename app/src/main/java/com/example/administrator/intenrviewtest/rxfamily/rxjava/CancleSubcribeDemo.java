@@ -1,4 +1,4 @@
-package com.example.administrator.intenrviewtest.rxjava;
+package com.example.administrator.intenrviewtest.rxfamily.rxjava;
 
 public class CancleSubcribeDemo {
 

@@ -3,6 +3,7 @@ package com.example.administrator.intenrviewtest.databinding;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -29,7 +30,6 @@ public class DataBindTestActivity extends AppCompatActivity {
         context.startActivity(intent);
     }
 
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,39 +37,10 @@ public class DataBindTestActivity extends AppCompatActivity {
         final TestMode testMode = new TestMode();
         viewDataBinding.setHanlders(this);
         viewDataBinding.setTestMode(testMode);
-        lv_.setAdapter(new BaseAdapter() {
-            @Override
-            public int getCount() {
-                return 10;
-            }
-
-            @Override
-            public Object getItem(int position) {
-                return null;
-            }
-
-            @Override
-            public long getItemId(int position) {
-                return position;
-            }
-
-            @Override
-            public View getView(int position, View convertView, ViewGroup parent) {
-
-                if (convertView == null) {
-//                    DataBindingUtil.inflate()
-                } else {
-
-                }
-
-                return convertView;
-            }
-        });
+        lv_ = findViewById(R.id.lv_);
+        lv_.setAdapter(new AdapterTest());
     }
 
-    class ViewHolder {
-
-    }
 
     public void ontestClick(View view) {
         TestMode testMode = viewDataBinding.getTestMode();

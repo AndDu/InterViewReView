@@ -1,4 +1,4 @@
-package com.example.administrator.intenrviewtest.rxjava;
+package com.example.administrator.intenrviewtest.rxfamily.rxjava;
 
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
@@ -7,9 +7,7 @@ import io.reactivex.BackpressureStrategy;
 import io.reactivex.Flowable;
 import io.reactivex.FlowableEmitter;
 import io.reactivex.FlowableOnSubscribe;
-import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
-import io.reactivex.internal.operators.flowable.FlowableFromIterable;
 
 public class RxFlowable {
 

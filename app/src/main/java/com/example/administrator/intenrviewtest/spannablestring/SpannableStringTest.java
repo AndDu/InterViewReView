@@ -7,13 +7,18 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
+import android.text.TextPaint;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
+import android.view.View;
 import android.widget.TextView;
 
 import com.example.administrator.intenrviewtest.R;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -24,8 +29,8 @@ public class SpannableStringTest extends AppCompatActivity {
     private TextView tv_3;
     private TextView tv_4;
 
-    public static void startActivity(Context context){
-        context.startActivity(new Intent(context,SpannableStringTest.class));
+    public static void startActivity(Context context) {
+        context.startActivity(new Intent(context, SpannableStringTest.class));
     }
 
 
@@ -41,7 +46,7 @@ public class SpannableStringTest extends AppCompatActivity {
         tv_4 = findViewById(R.id.tv_4);
 
         SpannableStringBuilder ssb1 = new SpannableStringBuilder(str);
-        int a=0;
+        int a = 0;
 
         /**
          * what ：文本格式，如前景色、下划线、模糊、超链接等，常用几个：
@@ -50,6 +55,7 @@ public class SpannableStringTest extends AppCompatActivity {
          * StrikethroughSpan中划线&UnderlineSpan下划线
          * SuperscriptSpan上标&SubscriptSpan下标
          * StyleSpan 可设置粗体new StyleSpan(Typeface.BOLD)、斜体new StyleSpan(Typeface.ITALIC)
+         * ClickableSpan 设置点击事件 tv_1.setMovementMethod(LinkMovementMethod.getInstance()); //需要给view设置这个属性
          */
 
         /**
@@ -59,15 +65,34 @@ public class SpannableStringTest extends AppCompatActivity {
          * Spanned.SPAN_INCLUSIVE_INCLUSIVE ：[起始下标,结束下标]
          * Spanned.SPAN_EXCLUSIVE_INCLUSIVE：(起始下标,结束下标]
          */
-        ssb1.setSpan(new ForegroundColorSpan(Color.RED),0,++a, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
-        ssb1.setSpan(new ForegroundColorSpan(Color.parseColor("#FFFFA500")),a,++a, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
-        ssb1.setSpan(new ForegroundColorSpan(Color.YELLOW),a,++a, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
-        ssb1.setSpan(new ForegroundColorSpan(Color.GREEN),a,++a, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
-        ssb1.setSpan(new ForegroundColorSpan(Color.CYAN),a,++a, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
-        ssb1.setSpan(new ForegroundColorSpan(Color.BLUE),a,++a, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
-        ssb1.setSpan(new ForegroundColorSpan(Color.parseColor("#FF800080")),a,++a, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
-        ssb1.setSpan(new UnderlineSpan(),a,str.length(),Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+        ssb1.setSpan(new ForegroundColorSpan(Color.RED), 0, ++a, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+        ssb1.setSpan(new ForegroundColorSpan(Color.parseColor("#FFFFA500")), a, ++a, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+        ssb1.setSpan(new ForegroundColorSpan(Color.YELLOW), a, ++a, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+        ssb1.setSpan(new ForegroundColorSpan(Color.GREEN), a, ++a, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+        ssb1.setSpan(new ForegroundColorSpan(Color.CYAN), a, ++a, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+        ssb1.setSpan(new ForegroundColorSpan(Color.BLUE), a, ++a, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+        ssb1.setSpan(new ForegroundColorSpan(Color.parseColor("#FF800080")), a, ++a, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+        ssb1.setSpan(new UnderlineSpan(), a, str.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+
+
+        ssb1.setSpan(new ClickableSpan() {
+            @Override
+            public void updateDrawState(@NonNull TextPaint ds) {
+                super.updateDrawState(ds);
+                //不要下划线
+                ds.setUnderlineText(false);
+            }
+
+            @Override
+            public void onClick(@NonNull View widget) {
+
+            }
+        }, 0, 1, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+
         tv_1.setText(ssb1);
+        //设置多个点击
+//        ssb1.setSpan(new ClickableSpan[], );
+
 
     }
 }
