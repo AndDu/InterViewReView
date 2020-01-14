@@ -6,6 +6,10 @@ buildscript {
     repositories {
         google()
         jcenter()
+        //aspect
+        jcenter() {
+            url 'http://jcenter.bintray.com/'
+        }
 
     }
     dependencies {
@@ -13,6 +17,8 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         //navigation导航插件添加
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navigationVersion"
+        //aspect
+        classpath 'com.hujiang.aspectjx:gradle-android-plugin-aspectjx:2.0.6'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -22,6 +28,12 @@ allprojects {
     repositories {
         google()
         jcenter()
+        //aspect
+        jcenter() {
+            url
+        }
+        //aspect
+        maven { url 'https://jitpack.io' }
 
     }
 }

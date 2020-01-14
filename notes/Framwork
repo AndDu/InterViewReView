@@ -1,0 +1,8 @@
+利用Adb工具输入指令：adb shell dumpsys activity | grep mFocusedActivity会打印出类似下面的内容:
+ 即可得到返回栈栈顶，及当前活动的Acitivity的信息，信息为包名+活动名。
+ 获得包名和活动名之后，我们就可以得到完整的跳转代码，形式如：隐式跳转+actionView
+ Intent mIntent = new Intent();
+ ComponentName mComp = new ComponentName("包名", "活动名");
+ mIntent.setComponent(mComp);
+ mIntent.setAction(Intent.ACTION_VIEW);
+ startActivity(mIntent);

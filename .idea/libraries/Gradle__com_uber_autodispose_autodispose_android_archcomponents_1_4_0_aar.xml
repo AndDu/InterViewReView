@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: com.uber.autodispose:autodispose-android-archcomponents:1.4.0@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/autodispose-android-archcomponents-1.4.0.aar/127565e065804ee17de16adb1b787a43/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/autodispose-android-archcomponents-1.4.0.aar/127565e065804ee17de16adb1b787a43/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.uber.autodispose/autodispose-android-archcomponents/1.4.0/aa9b9cc4d8c1273c2b0e6503839364f3870fe1f4/autodispose-android-archcomponents-1.4.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.uber.autodispose/autodispose-android-archcomponents/1.4.0/4994ee89ffda321d4a06dc27f666e3a8363db9ba/autodispose-android-archcomponents-1.4.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

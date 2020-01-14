@@ -414,7 +414,7 @@ public class RxJaveDemo {
             }
         }).subscribe();
 
-        //--------------------------------------- buffer ---------------------------------------------------
+        //--------------------------------------- buffer -zipWith--------------------------------------------------
         //将数据分段发送  buffer 中的参数是每段数据的个数
         Observable.just(1, 2, 3, 4, 5, 6).buffer(2).subscribe();
 
@@ -523,6 +523,7 @@ public class RxJaveDemo {
         //---------------------------------------count ---------------------------------------------------
         //获取发送事件的个数
         Observable.just(1, 2, 31, 5).count().subscribe();
+
 
     }
 
@@ -776,7 +777,9 @@ public class RxJaveDemo {
         Observable.just(1, 2).repeat(10).subscribe();
 
         //--------------------------------------- debounce ---------------------------------------------------
-
+//        每产生一个数据后，如果在规定的间隔时间内没有别的数据产生，就会发射这个数据，否则忽略该数据。
+//
+//        throttleWithTimeout 和 debounce 作用一样，通过源码可以看到，它也是调用的 debounce:
         //一段时间后无操作就会发送事件（只会发送最后一次操作的事件）,
         Observable.intervalRange(1, 5, 0, 2, TimeUnit.SECONDS).debounce(2, TimeUnit.SECONDS).subscribe();
 
@@ -875,6 +878,7 @@ public class RxJaveDemo {
 
         //---------------------------------------sample----------------------------------
 
+
         Observable.interval(3, TimeUnit.SECONDS)
                 .sample(2, TimeUnit.SECONDS) //取两秒内最后一次事件 ，和throttleLast类似
                 .subscribe(new Consumer<Long>() {
@@ -936,7 +940,7 @@ public class RxJaveDemo {
         }).subscribe();
 
         //--------------------------------------- takeWhile ----------------------------------
-        // 不满足这个条件不会发送事件
+        // 不全部满足这个条件不会发送事件  reture true 继续发送，return false 停止发送
         Observable.just(1, 2, 3, 4, 5, 6).takeWhile(new Predicate<Integer>() {
             @Override
             public boolean test(Integer integer) throws Exception {
@@ -946,7 +950,7 @@ public class RxJaveDemo {
 
         //--------------------------------------- skipWhile ----------------------------------
 
-        //跳过满足条件的事件，发送不满足条件的事件
+        //跳过满足条件的事件，发送不满足条件的事件 reture true 继续遍历条件，return false 开始发送满足条件的事件
         Observable.just(1, 2, 3, 4, 5, 6).skipWhile(new Predicate<Integer>() {
             @Override
             public boolean test(Integer integer) throws Exception {

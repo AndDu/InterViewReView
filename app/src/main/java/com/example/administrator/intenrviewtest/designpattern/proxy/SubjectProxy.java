@@ -8,6 +8,7 @@ public class SubjectProxy {
     public SubjectProxy(ISubject realSubject) {
         this.realSubject = realSubject;
     }
+
     public void submit() {
         realSubject.submit();
     }
