@@ -67,7 +67,7 @@ public class Girl {
     }
 
 
-   static class Builder {
+   public static class Builder {
 
         private String cloth;
         private String hair;
@@ -114,7 +114,7 @@ public class Girl {
 
 
     public static void main(){
-        Girl girl = new Builder()
+        Girl girl = new Girl. Builder()
                 .setBrow("C")
                 .setCloth("")
                 .setEye("")
@@ -122,7 +122,7 @@ public class Girl {
                 .setHair("")
                 .setLeg("脸长腿长腿比脸长")
                 .build();
-        ;
+
     }
 
 }

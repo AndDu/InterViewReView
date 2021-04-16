@@ -1,1 +1,1 @@
-include ':app', ':aidlclient', ':layoutoptimize', ':imageloaderanalnyze', ':jetpackdemo', ':aop', ':rxbindingdemo'
+include ':app', ':aidlclient', ':layoutoptimize', ':imageloaderanalnyze',  ':aop', ':rxbindingdemo'

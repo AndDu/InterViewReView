@@ -1,0 +1,38 @@
+ActivityThread -> handleLaunchActivity -> performLaunchActivity ->attch(初始化Window(PhoneWindow),
+并为phonewindow对象初始化（WindowManager）并设置WindowManager)
+
+谁来AddView()?
+DecroView的ViewPraent是ViewRootImpl， VIew的三大流程就是由ViewRootImpl触发的。
+
+ActivityThread -> handleResumeActivity(调用windowManager的方法将decorView添加到ViewRootImpl中取) 
+		-> performResumeActivity(这个是回调Activity的onResume方法)
+		-> addView(这个方法最终是进入WindowManagerImp中去的，WindowManagerImp中的addView又是调用了WindowMangerGlobal的AddView方法)
+	
+		-> WindowMangerGlobal#addView(初始化ViewRootImpl，并且将该Window相关信息保存起来，包括：ViewRootImpl,DecorView和LayoutParams
+		   	  调用ViewRootImpl的setView方法，将DecorView添加到ViewrootImpl,并且触发View的三大流程)
+handleResumeActivity的方法是先调用performResumeActivity这个方法回调OnResum方法，然后在调用windowManager的addView方法将DecorView添加到ViewRootImpl中。
+
+
+
+每个Window都对应一个DecorView，而从这里发现，每个DecorView都对应这着一个ViewRootImpl，从而得知，如果一个dialog或者其他新Window的界面，必定有一个新的ViewRootImpl来
+触发View的三大流程，而不是由宿主Window的ViewRootImpl触发的。
+
+
+为什么在Activity的onResume方法调用Handler的post，不能获取View的宽高呢？
+onResume是触发在handleResumeActivity（）中，而ViewRootImp的触发View的三大流程是scheduleTraversals()
+方法中的mHandler.getLooper().getQueue().postSyncBarrier()，
+所以Onreusme的方法会先执行，scheduleTraversals()之后触发。
+
+
+
+总结：
+	1.Activity的结构分为三层，Activity，Window，View；
+	2.结构的创建过程分为三步：
+		a.创建Activity并且创建相关的WindowManager和Window，对应着的是activity的attach方法的调用；
+		b.初始化DecorView和contentView，对应的是Activity的onCreate方法
+		c.创建ViewRootImpl，并且将DecorView添加到ViewRootImpl中，同时触发View树的三大流程。
+	3.在generateLayout方法中。会根据设置不懂的flags来计算DecorView的大小和位置，计算逻辑在UpdateColorViews方法里面；
+	  还是根据设置不同的features方法来选择默认加载到DecorView中，比如说设置了NO_Action_bar的features，就会加载不带Actionbar的布局。
+
+
+Activity问你4个问题，你敢回答吗？ https://mp.weixin.qq.com/s/FCxewOTpwMPt6J_DJiAMNw

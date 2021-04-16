@@ -134,7 +134,6 @@ public class ViewPagerTestActivity extends AppCompatActivity {
             ImageView view = (ImageView) views.get(position);
             view.setImageResource(R.drawable.meiren);
             container.addView(view);
-
             return view;
         }
 

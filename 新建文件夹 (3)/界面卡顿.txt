@@ -1,0 +1,9 @@
+超过16ms就让页面卡顿了？  https://mp.weixin.qq.com/s/BwLMZDB2kaqdu_40ImZH7g
+1.写在前面
+2.为什么是16ms
+3.为什么16ms没完成绘制就会卡顿
+4，渲染原理
+5.过度绘制检测
+6.过度绘制处理
+7.减少不必要的层次：巧用Hierarchy Viewer
+8.布局常见问题与优化建议

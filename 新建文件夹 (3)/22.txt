@@ -1,0 +1,58 @@
+     * https://mp.weixin.qq.com/s/cz9x7A0p8PV8Z8QBNgZBbw
+     * 1.OkHttp和Retrofit的使用和联系。
+     * 2.静态变量和实例变量的区别。
+     * 3.Java中==和equals的区别。
+     * 4.wait和sleep的区别。
+     * 5.简述Android虚拟机和Java虚拟机的区别。
+ * https://mp.weixin.qq.com/s/TOe2LLD1IbtXSABVpOClHA
+     * Java对象的几种方式
+     * 重载（overload）和重写（override）的区别
+     * 3.谈谈对Java注解的理解
+     * 4.什么是不可变对象，他对并发开发有什么帮助
+     * 5.类什么时候会被初始化
+
+滑动冲突：https://mp.weixin.qq.com/s/6Sb1U_g_snsdFoC74qON1Q
+
+当Android遇到Jenkins    https://mp.weixin.qq.com/s/OBz9rKkdyHBzj3K_893d7A
+
+
+
+     * https://mp.weixin.qq.com/s/1SMdj662cX49_KtnEUDidg
+     * 1.为什么 Java 中用 char 数组比 String 更适合存储密码
+     * 2. 为什么Java中不支持多重继承
+     * 3. 死锁与活锁的区别，死锁与饥饿的区别
+     * 4. Java中的异常处理机制的简单原理和应用
+     * 5. synchronized和volatile关键字的作用
+
+
+     * https://mp.weixin.qq.com/s/HyI__LHw3j-5sMr0tlucvg
+     * 1. Linux自带多种通讯方式，为什么Android用了Binder
+     * 2. Java中用到的线程调度算法是什么
+     * 3. 谈谈对Java反射的理解
+     * 4.如何停止一个正在运行的线程
+     * 5. 并发集合与普通集合的区别
+
+
+     * https://mp.weixin.qq.com/s/qLq42Mn3ibjIEj4coXRuOw
+     * 1. 并行和并发有什么区别
+     * 2. Android推送的基本原理
+     * 3. 深克隆与浅克隆的区别
+     * 4. 请简述你对AsyncTask异步任务的理解
+     * 5. 请描述一下View的绘制流程
+
+
+    *       https://mp.weixin.qq.com/s/yZ0XT17gQIRcG2Wr-KMo4w
+            1. BroadcastReceiver与LocalBR的区别
+     *      2.并行和并发有什么区别
+     *      3.LinearLayout和RelativeLayout对比
+     *      4.JVM加载class文件的原理机制
+     *      5.Android主线程怎么给子线程发message
+
+
+
+     *  https://mp.weixin.qq.com/s/P-Krm0PfvFeOI3xQgPlfLQ
+     *  1.AOT和JIT以及混合编译的区别、优势
+     *  2.Java对象的内存分配过程是如何保证线程安全的
+     *  3.WebView的漏洞有哪几种
+     *  4.说说你对线程池的理解 
+     *  5.简单描述一下Intent和IntentFilter

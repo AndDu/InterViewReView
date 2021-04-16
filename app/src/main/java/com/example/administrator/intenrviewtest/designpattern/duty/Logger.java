@@ -27,10 +27,8 @@ public abstract class Logger {
         }
 
         if (nextLogger != null) {
-
             nextLogger.print(level, str);
         } else {
-
             System.out.println("无下一个责任对象");
         }
 
